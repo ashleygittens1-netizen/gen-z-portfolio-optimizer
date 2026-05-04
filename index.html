@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gen Z Consumer Stock Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- Google Fonts: Editorial + Body pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES — Edit colors here to retheme
+       ============================================================ */
+    :root {
+      --bg:          #f2efe9;
+      --bg-2:        #eae6de;
+      --bg-3:        #e0dbd2;
+      --card:        rgba(255,255,255,0.7);
+      --card-border: rgba(0,0,0,0.07);
+      --card-hover:  rgba(255,255,255,0.9);
+
+      --cream:       #1a1814;
+      --text-primary: #1e1b16;
+      --text-muted:  #6b6660;
+      --text-dim:    #9e9890;
+
+      /* Accent palette — slightly deeper for light bg */
+      --lavender:    #7c5cbf;
+      --electric:    #1a8fa8;
+      --coral:       #d95f4b;
+      --lime:        #5c9e1a;
+      --gold:        #c48a00;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+
+      --radius-sm:   8px;
+      --radius-md:   16px;
+      --radius-lg:   24px;
+      --radius-xl:   32px;
+
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 48px rgba(0,0,0,0.14);
+      --glow-lav:    0 0 40px rgba(124,92,191,0.08);
+      --glow-elec:   0 0 40px rgba(26,143,168,0.08);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* Ambient gradient blobs */
+    .ambient {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,92,191,0.06) 0%, transparent 70%);
+      top: -200px; left: -200px;
+    }
+    .ambient-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(26,143,168,0.05) 0%, transparent 70%);
+      bottom: 10%; right: -150px;
+    }
+    .ambient-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(217,95,75,0.04) 0%, transparent 70%);
+      top: 50%; left: 40%;
+    }
+
+    /* ============================================================
+       LAYOUT
+       ============================================================ */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section { padding: 80px 0; }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(242,239,233,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 32px;
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--lavender); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-badge {
+      background: rgba(92,158,26,0.10);
+      border: 1px solid rgba(92,158,26,0.25);
+      color: var(--lime);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      padding: 120px 0 80px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--electric);
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--electric);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--lavender);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 48px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Executive summary card */
+    .exec-card {
+      background: linear-gradient(135deg, rgba(200,184,255,0.08) 0%, rgba(92,225,255,0.04) 100%);
+      border: 1px solid rgba(200,184,255,0.15);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--glow-lav);
+    }
+
+    .exec-card-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 16px;
+    }
+
+    .exec-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .exec-card p strong { color: var(--text-primary); font-weight: 500; }
+
+    .exec-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 24px;
+    }
+
+    .exec-stat-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .exec-stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--cream);
+    }
+
+    .exec-stat-value.positive { color: var(--lime); }
+    .exec-stat-value.negative { color: var(--coral); }
+
+    /* ============================================================
+       SECTION HEADERS
+       ============================================================ */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* ============================================================
+       KPI CARDS
+       ============================================================ */
+    .kpi-section { padding-top: 0; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent-color, var(--lavender));
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .kpi-card:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .kpi-card:hover::before { opacity: 1; }
+
+    .kpi-card.accent-electric { --accent-color: var(--electric); }
+    .kpi-card.accent-coral    { --accent-color: var(--coral); }
+    .kpi-card.accent-lime     { --accent-color: var(--lime); }
+    .kpi-card.accent-gold     { --accent-color: var(--gold); }
+    .kpi-card.accent-lavender { --accent-color: var(--lavender); }
+
+    .kpi-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .kpi-value {
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .kpi-value.positive { color: var(--lime); }
+    .kpi-value.negative { color: var(--coral); }
+    .kpi-value.accent-e { color: var(--electric); }
+    .kpi-value.accent-g { color: var(--gold); }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       CHARTS SECTION
+       ============================================================ */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: box-shadow 0.3s;
+    }
+
+    .chart-card:hover { box-shadow: var(--shadow); }
+
+    .chart-card.wide {
+      grid-column: 1 / -1;
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .chart-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .chart-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    .chart-pill {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .chart-pill.live {
+      background: rgba(92,158,26,0.08);
+      color: var(--lime);
+      border: 1px solid rgba(92,158,26,0.2);
+    }
+
+    .chart-pill.live::before {
+      content: '● ';
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .chart-container {
+      position: relative;
+      height: 260px;
+    }
+
+    .chart-container.tall { height: 320px; }
+
+    /* ============================================================
+       BRAND CARDS
+       ============================================================ */
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .brand-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .brand-card:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .brand-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .brand-ticker {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .brand-category {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .brand-insight {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid var(--card-border);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    .brand-relevance {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .relevance-label {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .relevance-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .relevance-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--bar-color, var(--lavender));
+    }
+
+    /* Category color system */
+    .cat-entertainment { color: var(--lavender); --bar-color: var(--lavender); }
+    .cat-fitness       { color: var(--lime);     --bar-color: var(--lime); }
+    .cat-food          { color: var(--coral);    --bar-color: var(--coral); }
+    .cat-beauty        { color: var(--gold);     --bar-color: var(--gold); }
+    .cat-fintech       { color: var(--electric); --bar-color: var(--electric); }
+
+    .icon-entertainment { background: rgba(124,92,191,0.10); }
+    .icon-fitness       { background: rgba(92,158,26,0.10); }
+    .icon-food          { background: rgba(217,95,75,0.10); }
+    .icon-beauty        { background: rgba(196,138,0,0.10); }
+    .icon-fintech       { background: rgba(26,143,168,0.10); }
+
+    /* ============================================================
+       TAKEAWAYS
+       ============================================================ */
+    .takeaways-section { background: var(--bg-2); }
+
+    .takeaways-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .takeaway-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      position: relative;
+    }
+
+    .takeaway-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      position: absolute;
+      top: 16px;
+      right: 24px;
+    }
+
+    .takeaway-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .tag-performance {
+      background: rgba(92,158,26,0.10);
+      color: var(--lime);
+      border: 1px solid rgba(92,158,26,0.20);
+    }
+    .tag-risk {
+      background: rgba(217,95,75,0.10);
+      color: var(--coral);
+      border: 1px solid rgba(217,95,75,0.20);
+    }
+    .tag-culture {
+      background: rgba(124,92,191,0.10);
+      color: var(--lavender);
+      border: 1px solid rgba(124,92,191,0.20);
+    }
+    .tag-brand {
+      background: rgba(196,138,0,0.10);
+      color: var(--gold);
+      border: 1px solid rgba(196,138,0,0.20);
+    }
+    .tag-strategy {
+      background: rgba(26,143,168,0.10);
+      color: var(--electric);
+      border: 1px solid rgba(26,143,168,0.20);
+    }
+
+    .takeaway-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .takeaway-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .footer-brand span { color: var(--lavender); }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      animation: fadeInUp 0.7s ease forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    /* ============================================================
+       DIVIDER
+       ============================================================ */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+      margin: 0 32px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-layout     { grid-template-columns: 1fr; }
+      .kpi-grid        { grid-template-columns: repeat(2, 1fr); }
+      .charts-grid     { grid-template-columns: 1fr; }
+      .chart-card.wide { grid-column: 1; }
+      .brands-grid     { grid-template-columns: repeat(2, 1fr); }
+      .takeaways-grid  { grid-template-columns: 1fr 1fr; }
+      .nav-links       { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .kpi-grid       { grid-template-columns: 1fr; }
+      .brands-grid    { grid-template-columns: 1fr; }
+      .takeaways-grid { grid-template-columns: 1fr; }
+      .footer-inner   { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-meta    { text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient blobs -->
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+  <div class="ambient ambient-3"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Gen<span>Z</span> Pulse</div>
+      <ul class="nav-links">
+        <li><a href="#kpis">Performance</a></li>
+        <li><a href="#daily-picks">Today's Picks</a></li>
+        <li><a href="#charts">Charts</a></li>
+        <li><a href="#diversification">Sectors</a></li>
+        <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#takeaways">Insights</a></li>
+      </ul>
+      <div class="nav-badge">Live Dashboard</div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow fade-up">OPIM 5641 · University of Connecticut · Portfolio Analytics</div>
+
+      <div class="hero-layout">
+        <div>
+          <h1 class="hero-title fade-up delay-1">
+            Gen Z<br/><em>Consumer</em><br/>Stock Dashboard
+          </h1>
+          <p class="hero-subtitle fade-up delay-2">
+            A data-driven analysis of publicly traded brands
+            dominating Gen Z spending — from streaming to skincare,
+            fintech to fast casual. Built on Modern Portfolio Theory.
+          </p>
+        </div>
+
+        <!-- ======================================================
+             EXECUTIVE SUMMARY CARD
+             Replace the placeholder text and stats below with your actual results
+             ====================================================== -->
+        <div class="exec-card fade-up delay-3">
+          <div class="exec-card-label">Executive Summary</div>
+          <p>
+            The <strong>Gen Z Digital Pulse</strong> portfolio selects 10 stocks daily
+            from a 22-stock universe of consumer brands. Using a
+            <strong>60-day sliding window MPT optimizer</strong>, it rebalances
+            every trading day — automatically finding the maximum
+            Sharpe ratio allocation without human intervention.
+          </p>
+          <!-- REPLACE these stat values with your actual results -->
+          <div class="exec-stats">
+            <div>
+              <div class="exec-stat-label">MPT Total Return</div>
+              <div class="exec-stat-value positive">94.60%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">S&P 500 Return</div>
+              <div class="exec-stat-value">93.11%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Sharpe Ratio</div>
+              <div class="exec-stat-value">0.74</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Trading Days</div>
+              <div class="exec-stat-value">690</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       KPI CARDS
+       Replace all values in the data-value attributes and inner text
+       ============================================================ -->
+  <section class="kpi-section" id="kpis">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Performance Metrics</div>
+          <h2 class="section-title">Key Numbers</h2>
+        </div>
+        <div class="section-tag">2023–2025 · 690 trading days</div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card accent-lime fade-up delay-1">
+          <div class="kpi-label">Portfolio Cumulative Return</div>
+          <div class="kpi-value positive">94.60%</div>
+          <div class="kpi-sub">MPT Sliding Window · 60-day lookback</div>
+        </div>
+
+        <div class="kpi-card accent-electric fade-up delay-2">
+          <div class="kpi-label">S&P 500 Benchmark Return</div>
+          <div class="kpi-value accent-e">93.11%</div>
+          <div class="kpi-sub">SPY Buy & Hold · Same period</div>
+        </div>
+
+        <div class="kpi-card accent-lavender fade-up delay-3">
+          <div class="kpi-label">Portfolio Sharpe Ratio</div>
+          <div class="kpi-value">0.74</div>
+          <div class="kpi-sub">S&P 500 Sharpe: 1.14 · S&P wins risk-adjusted</div>
+        </div>
+
+        <div class="kpi-card accent-coral fade-up delay-1">
+          <div class="kpi-label">Daily Volatility</div>
+          <div class="kpi-value negative">1.70%</div>
+          <div class="kpi-sub">vs S&P 500: 0.95% · Higher risk for similar return</div>
+        </div>
+
+        <div class="kpi-card accent-gold fade-up delay-2">
+          <div class="kpi-label">Best Golden Cross Signal</div>
+          <div class="kpi-value accent-g">SPOT</div>
+          <div class="kpi-sub">Spotify · 81.2% Golden Cross days · Most consistent</div>
+        </div>
+
+        <div class="kpi-card accent-coral fade-up delay-3">
+          <div class="kpi-label">Maximum Drawdown</div>
+          <div class="kpi-value negative">−36.77%</div>
+          <div class="kpi-sub">vs S&P 500: −18.76% · Late 2025 selloff</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       LIVE DAILY RECOMMENDATION
+       Reads from results/daily_recommendation.json
+       Written by portfolio.py every time GitHub Actions runs at 3:55 PM
+       ============================================================ -->
+  <section id="daily-picks">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">60-Day Sliding Window · Auto-Updated</div>
+          <h2 class="section-title">Today's Portfolio Picks</h2>
+        </div>
+        <div class="section-tag" id="lastUpdated">Loading...</div>
+      </div>
+
+      <!-- Today's stats bar -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px;" class="fade-up">
+        <div class="kpi-card accent-lime">
+          <div class="kpi-label">Expected Daily Return</div>
+          <div class="kpi-value positive" id="todayReturn">—</div>
+          <div class="kpi-sub">Based on 60-day lookback window</div>
+        </div>
+        <div class="kpi-card accent-lavender">
+          <div class="kpi-label">Today's Sharpe Ratio</div>
+          <div class="kpi-value" id="todaySharpe">—</div>
+          <div class="kpi-sub">Max Sharpe point auto-selected</div>
+        </div>
+        <div class="kpi-card accent-electric">
+          <div class="kpi-label">Training Window</div>
+          <div class="kpi-value accent-e" style="font-size:0.95rem; line-height:1.3;" id="windowPeriod">—</div>
+          <div class="kpi-sub">60 days of historical data used</div>
+        </div>
+        <div class="kpi-card accent-gold">
+          <div class="kpi-label">Trade Date</div>
+          <div class="kpi-value accent-g" style="font-size:1rem;" id="tradeDate">—</div>
+          <div class="kpi-sub">Most recent optimization run</div>
+        </div>
+      </div>
+
+      <!-- Stock picks grid — 5 columns, 2 rows = 10 stocks -->
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:16px;"
+           id="dailyPicksGrid" class="fade-up">
+        <!-- Injected by JavaScript from daily_recommendation.json -->
+      </div>
+
+      <!-- Loading / error state -->
+      <div id="picksLoading" style="
+        text-align:center; padding:48px;
+        color:var(--text-dim); font-size:0.88rem;
+        background:var(--card); border:1px solid var(--card-border);
+        border-radius:var(--radius-md);">
+        <div style="font-size:1.5rem; margin-bottom:12px;">⏳</div>
+        Loading today's recommendations from portfolio.py output...
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       CHARTS
+       Replace sample data arrays with your actual results
+       ============================================================ -->
+  <section id="charts">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Visualization</div>
+          <h2 class="section-title">Portfolio Analytics</h2>
+        </div>
+        <div class="chart-pill live">Updated Daily</div>
+      </div>
+
+      <div class="charts-grid">
+
+        <!-- Cumulative Return Chart (WIDE) -->
+        <div class="chart-card wide fade-up">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Cumulative Return: MPT Portfolio vs S&P 500</div>
+              <div class="chart-subtitle">Growth of $1 invested · 2023–2025</div>
+            </div>
+          </div>
+          <div class="chart-container tall">
+            <canvas id="cumulativeChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Daily Returns Chart -->
+        <div class="chart-card fade-up delay-1">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Daily Returns</div>
+              <div class="chart-subtitle">Portfolio volatility by trading day</div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="dailyReturnsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Stock Allocation Chart -->
+        <div class="chart-card fade-up delay-2">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Stock Selection Frequency</div>
+              <div class="chart-subtitle">% of days each stock was held by optimizer</div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="allocationChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Brand Momentum Chart -->
+        <div class="chart-card wide fade-up delay-1">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Strategy Comparison: MPT vs Moving Average vs S&P 500</div>
+              <div class="chart-subtitle">Three-way cumulative return · Aligned date range</div>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="strategyChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       BRAND CARDS
+       Add or edit brand cards below — replace all placeholder data
+       ============================================================ -->
+  <section id="brands">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Brand Universe</div>
+          <h2 class="section-title">Gen Z Stock Picks</h2>
+        </div>
+        <div class="section-tag">22 stocks · 5 sectors</div>
+      </div>
+
+      <div class="brands-grid" id="brandsGrid">
+        <!-- Brand cards injected by JavaScript below -->
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       SECTOR DIVERSIFICATION CHECK
+       ============================================================ -->
+  <section id="diversification">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Constraint Verification</div>
+          <h2 class="section-title">Sector Diversification Check</h2>
+        </div>
+        <div class="section-tag">5 sectors · 10 stocks selected daily</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(5,1fr); gap:16px; margin-bottom:32px;">
+        <div class="kpi-card accent-electric fade-up delay-1">
+          <div class="kpi-label">Fitness &amp; Wellness</div>
+          <div class="kpi-value accent-e" style="font-size:1.4rem;">✓</div>
+          <div class="kpi-sub">CELH · DECK · LULU</div>
+        </div>
+        <div class="kpi-card accent-gold fade-up delay-2">
+          <div class="kpi-label">Skincare &amp; Beauty</div>
+          <div class="kpi-value accent-g" style="font-size:1.4rem;">✓</div>
+          <div class="kpi-sub">ELF · ULTA · UL</div>
+        </div>
+        <div class="kpi-card accent-coral fade-up delay-3">
+          <div class="kpi-label">Food &amp; Beverage</div>
+          <div class="kpi-value negative" style="font-size:1.4rem;">✓</div>
+          <div class="kpi-sub">CMG · BROS · SBUX</div>
+        </div>
+        <div class="kpi-card accent-lavender fade-up delay-1">
+          <div class="kpi-label">Entertainment</div>
+          <div class="kpi-value" style="font-size:1.4rem; color:var(--lavender)">✓</div>
+          <div class="kpi-sub">SPOT · META · NFLX</div>
+        </div>
+        <div class="kpi-card accent-lime fade-up delay-2">
+          <div class="kpi-label">Commerce &amp; Fintech</div>
+          <div class="kpi-value positive" style="font-size:1.4rem;">✓</div>
+          <div class="kpi-sub">XYZ · AMZN</div>
+        </div>
+      </div>
+
+      <!-- Constraint summary row -->
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px;" class="fade-up">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Constraint: Budget</div>
+              <div class="chart-subtitle">All proportions sum to exactly 1</div>
+            </div>
+            <span style="color:var(--lime); font-size:1.2rem;">✓</span>
+          </div>
+          <p style="font-size:0.83rem; color:var(--text-muted);">
+            Every daily allocation sums to 100%. No cash held, no leverage. The fundamental constraint held across all 690 trading days.
+          </p>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Constraint: Linking</div>
+              <div class="chart-subtitle">Min 5% · Max 40% per stock</div>
+            </div>
+            <span style="color:var(--lime); font-size:1.2rem;">✓</span>
+          </div>
+          <p style="font-size:0.83rem; color:var(--text-muted);">
+            Binary Y and continuous X variables coupled. If Y=0, X=0. If Y=1, allocation bounded between 5% and 40%. No micro-positions allowed.
+          </p>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Constraint: Selection</div>
+              <div class="chart-subtitle">Exactly 10 stocks chosen daily</div>
+            </div>
+            <span style="color:var(--lime); font-size:1.2rem;">✓</span>
+          </div>
+          <p style="font-size:0.83rem; color:var(--text-muted);">
+            The optimizer whittled 22 stocks down to exactly 10 every trading day. At least 1 stock was selected from each of the 5 sectors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       SLIDING WINDOW SUMMARY
+       ============================================================ -->
+  <section id="window-summary">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">60-Day Sliding Window Results</div>
+          <h2 class="section-title">MPT vs S&P 500</h2>
+        </div>
+        <div class="section-tag">Forward-looking · No hindsight bias</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;" class="fade-up">
+        <!-- MPT column -->
+        <div class="chart-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:var(--lavender);"></div>
+            <div class="chart-title">MPT Sliding Window Portfolio</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div>
+              <div class="exec-stat-label">Total Return</div>
+              <div class="exec-stat-value positive" style="font-size:2rem;">94.60%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Daily Volatility</div>
+              <div class="exec-stat-value negative" style="font-size:2rem;">1.70%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Sharpe Ratio</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">0.74</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Max Drawdown</div>
+              <div class="exec-stat-value negative" style="font-size:1.5rem;">−36.77%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Win Rate</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">54.01%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Avg Stocks Held</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">10</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- S&P column -->
+        <div class="chart-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:var(--electric);"></div>
+            <div class="chart-title">S&P 500 Buy &amp; Hold (SPY)</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div>
+              <div class="exec-stat-label">Total Return</div>
+              <div class="exec-stat-value" style="font-size:2rem; color:var(--electric);">93.11%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Daily Volatility</div>
+              <div class="exec-stat-value" style="font-size:2rem;">0.95%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Sharpe Ratio</div>
+              <div class="exec-stat-value positive" style="font-size:1.5rem;">1.14</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Max Drawdown</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">−18.76%</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Win Rate</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">N/A</div>
+            </div>
+            <div>
+              <div class="exec-stat-label">Avg Stocks Held</div>
+              <div class="exec-stat-value" style="font-size:1.5rem;">500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insight callout -->
+      <div class="exec-card fade-up" style="margin-top:24px;">
+        <div class="exec-card-label">Sliding Window Interpretation</div>
+        <p>
+          Our MPT model <strong>matched the S&P 500 on total return</strong> (94.60% vs 93.11%) while re-optimizing daily from scratch using only historical data — no hindsight, no future peeking.
+          The trade-off is clear: nearly <strong>double the daily volatility</strong> (1.70% vs 0.95%) and a significantly deeper max drawdown (−36.77% vs −18.76%).
+          The S&P 500 wins on risk-adjusted return (Sharpe 1.14 vs 0.74), confirming that for risk-averse clients, passive indexing remains the benchmark to beat.
+          For aggressive growth mandates, our model delivers comparable returns with active thematic exposure to Gen Z consumer brands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       GOLDEN CROSS BEST SIGNALS
+       ============================================================ -->
+  <section id="golden-cross">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Moving Average Strategy</div>
+          <h2 class="section-title">Best Golden Cross Signals</h2>
+        </div>
+        <div class="section-tag">20-day MA vs 50-day MA · 701 trading days</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px;">
+        <div class="brand-card fade-up delay-1">
+          <div class="brand-card-top">
+            <div class="brand-icon icon-entertainment">🎵</div>
+            <div class="brand-ticker">SPOT</div>
+          </div>
+          <div class="brand-name">Spotify</div>
+          <div class="brand-category cat-entertainment">Entertainment</div>
+          <div class="brand-relevance">
+            <span class="relevance-label">Golden Cross</span>
+            <div class="relevance-bar"><div class="relevance-fill" style="width:81.2%; background:var(--lavender)"></div></div>
+            <span class="relevance-label">81.2%</span>
+          </div>
+          <div class="brand-insight">Strongest uptrend signal in the universe. In a Golden Cross for over 4 out of every 5 trading days — consistent bullish momentum throughout 2023–2025.</div>
+        </div>
+
+        <div class="brand-card fade-up delay-2">
+          <div class="brand-card-top">
+            <div class="brand-icon icon-entertainment">📱</div>
+            <div class="brand-ticker">META</div>
+          </div>
+          <div class="brand-name">Meta / Instagram</div>
+          <div class="brand-category cat-entertainment">Entertainment</div>
+          <div class="brand-relevance">
+            <span class="relevance-label">Golden Cross</span>
+            <div class="relevance-bar"><div class="relevance-fill" style="width:74.8%; background:var(--lavender)"></div></div>
+            <span class="relevance-label">74.8%</span>
+          </div>
+          <div class="brand-insight">Second most consistent signal. Reels-driven recovery from 2022 created a sustained uptrend the MA strategy captured effectively.</div>
+        </div>
+
+        <div class="brand-card fade-up delay-3">
+          <div class="brand-card-top">
+            <div class="brand-icon icon-fintech">📦</div>
+            <div class="brand-ticker">AMZN</div>
+          </div>
+          <div class="brand-name">Amazon</div>
+          <div class="brand-category cat-fintech">Commerce</div>
+          <div class="brand-relevance">
+            <span class="relevance-label">Golden Cross</span>
+            <div class="relevance-bar"><div class="relevance-fill" style="width:75.6%; background:var(--electric)"></div></div>
+            <span class="relevance-label">75.6%</span>
+          </div>
+          <div class="brand-insight">Clean, persistent uptrend with large stretches of green shading. Low volatility relative to return made it the quietest overachiever.</div>
+        </div>
+
+        <div class="brand-card fade-up delay-1">
+          <div class="brand-card-top">
+            <div class="brand-icon icon-entertainment">🎬</div>
+            <div class="brand-ticker">NFLX</div>
+          </div>
+          <div class="brand-name">Netflix</div>
+          <div class="brand-category cat-entertainment">Entertainment</div>
+          <div class="brand-relevance">
+            <span class="relevance-label">Golden Cross</span>
+            <div class="relevance-bar"><div class="relevance-fill" style="width:65.6%; background:var(--lavender)"></div></div>
+            <span class="relevance-label">65.6%</span>
+          </div>
+          <div class="brand-insight">Surprise standout after the universe expansion. Two thirds of trading days showed a buy signal — strong momentum throughout the analysis period.</div>
+        </div>
+      </div>
+
+      <!-- MA summary card -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;" class="fade-up">
+        <div class="kpi-card accent-lavender">
+          <div class="kpi-label">MA Total Return</div>
+          <div class="kpi-value">59.45%</div>
+          <div class="kpi-sub">vs MPT 94.60% · vs S&P 93.11%</div>
+        </div>
+        <div class="kpi-card accent-coral">
+          <div class="kpi-label">MA Sharpe Ratio</div>
+          <div class="kpi-value negative">0.60</div>
+          <div class="kpi-sub">Lowest of three strategies · 0.74 MPT · 1.14 S&P</div>
+        </div>
+        <div class="kpi-card accent-electric">
+          <div class="kpi-label">Days in Market</div>
+          <div class="kpi-value accent-e">99.9%</div>
+          <div class="kpi-sub">Avg 13.1 stocks held · Variable vs MPT's fixed 10</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       THREE-WAY FULL COMPARISON TABLE
+       ============================================================ -->
+  <section id="comparison">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Full Strategy Comparison</div>
+          <h2 class="section-title">MPT vs Moving Average vs S&P 500</h2>
+        </div>
+        <div class="section-tag">Aligned date range · All strategies</div>
+      </div>
+
+      <div class="chart-card fade-up" style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-family:var(--font-body);">
+          <thead>
+            <tr style="border-bottom:2px solid var(--card-border);">
+              <th style="text-align:left; padding:14px 16px; font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim);">Metric</th>
+              <th style="text-align:right; padding:14px 16px; font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--lavender);">MPT Model</th>
+              <th style="text-align:right; padding:14px 16px; font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--electric);">Moving Avg</th>
+              <th style="text-align:right; padding:14px 16px; font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral);">S&amp;P 500</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Total Return</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--lime); font-weight:500;">94.60%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">59.45%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">93.11%</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Annualized Sharpe Ratio</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">0.74</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">0.60</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--lime); font-weight:500;">1.14 ←</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Max Drawdown</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--coral);">−36.77%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">−28.95%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--lime); font-weight:500;">−18.76% ←</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Daily Volatility</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--coral);">1.6960%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">1.2706%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--lime); font-weight:500;">0.9525% ←</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Win Rate (% positive days)</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--lime); font-weight:500;">54.01% ←</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">53.63%</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-dim);">N/A</td>
+            </tr>
+            <tr>
+              <td style="padding:14px 16px; font-size:0.88rem; color:var(--text-muted);">Avg Stocks Held</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">10 (always)</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">13.1</td>
+              <td style="padding:14px 16px; text-align:right; font-family:var(--font-mono); font-size:0.9rem; color:var(--text-primary);">500 (index)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--card-border); display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+          <div style="font-size:0.82rem; color:var(--text-muted);">
+            <span style="color:var(--lime); font-weight:600;">Best total return:</span> MPT Model at 94.60%
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted);">
+            <span style="color:var(--lime); font-weight:600;">Best risk-adjusted (Sharpe):</span> S&P 500 at 1.14
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted);">
+            <span style="color:var(--coral); font-weight:600;">Moving Average:</span> Underperformed both strategies
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+       Edit the takeaway content below
+       ============================================================ -->
+  <section class="takeaways-section" id="takeaways">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-eyebrow">Strategic Intelligence</div>
+          <h2 class="section-title">Executive Takeaways</h2>
+        </div>
+      </div>
+
+      <div class="takeaways-grid">
+
+        <div class="takeaway-card fade-up delay-1">
+          <div class="takeaway-number">01</div>
+          <div class="takeaway-tag tag-performance">Performance</div>
+          <div class="takeaway-title">MPT matched the S&P 500 on total return with active Gen Z exposure</div>
+          <p class="takeaway-body">
+            The Gen Z Digital Pulse portfolio returned 94.60% versus the S&P 500's
+            93.11% — a 1.49 percentage point outperformance using a genuine forward-looking
+            60-day sliding window. Every allocation decision used only data available
+            at that moment — no hindsight, no future peeking.
+          </p>
+        </div>
+
+        <div class="takeaway-card fade-up delay-2">
+          <div class="takeaway-number">02</div>
+          <div class="takeaway-tag tag-risk">Risk</div>
+          <div class="takeaway-title">Higher volatility and deeper drawdowns are the cost of concentration</div>
+          <p class="takeaway-body">
+            Daily volatility of 1.70% versus SPY's 0.95% and a maximum drawdown
+            of −36.77% versus −18.76% confirm the risk of a concentrated thematic
+            strategy. The S&P 500 wins on Sharpe ratio (1.14 vs 0.74). For risk-averse
+            clients, passive indexing remains superior. For aggressive growth mandates,
+            our model delivers comparable returns with active brand exposure.
+          </p>
+        </div>
+
+        <div class="takeaway-card fade-up delay-3">
+          <div class="takeaway-number">03</div>
+          <div class="takeaway-tag tag-culture">Culture</div>
+          <div class="takeaway-title">Both strategies independently confirmed the same top holdings</div>
+          <p class="takeaway-body">
+            The MPT optimizer and the Moving Average Golden Cross strategy independently
+            identified Spotify (81.2% Golden Cross), Amazon (75.6%), and Meta (74.8%)
+            as their top signals. Two completely different mathematical approaches arrived
+            at the same conclusion — a strong indicator of genuine Gen Z brand momentum,
+            not just model artifact.
+          </p>
+        </div>
+
+        <div class="takeaway-card fade-up delay-1">
+          <div class="takeaway-number">04</div>
+          <div class="takeaway-tag tag-brand">Brand Signal</div>
+          <div class="takeaway-title">Revenue growth separated real Gen Z brands from vibe picks</div>
+          <p class="takeaway-body">
+            Stocks selected using Piper Sandler survey data and Google Trends
+            acceleration — filtered by SEC revenue growth — consistently outperformed
+            brand recognition alone. Celsius (102% YoY growth), e.l.f. Beauty (76%),
+            and Dutch Bros (48%) were the clearest cases of cultural relevance
+            directly translating into financial performance.
+          </p>
+        </div>
+
+        <div class="takeaway-card fade-up delay-2">
+          <div class="takeaway-number">05</div>
+          <div class="takeaway-tag tag-strategy">Strategy</div>
+          <div class="takeaway-title">The Moving Average strategy underperformed both benchmarks</div>
+          <p class="takeaway-body">
+            The Golden Cross strategy returned only 59.45% — below both MPT (94.60%)
+            and the S&P 500 (93.11%). Its Sharpe ratio of 0.60 was the lowest of all
+            three. Holding an average of 13.1 stocks in equal weights diluted the
+            impact of top performers. This confirms that disciplined optimization
+            with fixed 10-stock selection beats rules-based signal trading for this universe.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       Replace YOUR NAME and adjust date as needed
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Gen<span>Z</span> Digital Pulse</div>
+        </div>
+        <div class="footer-meta">
+          <!-- REPLACE YOUR NAME with your actual name -->
+          <div>OPIM 5641 · University of Connecticut</div>
+          <div style="margin-top:4px;">Author: YOUR NAME &nbsp;·&nbsp; <span id="footerDate"></span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT — DATA & CHARTS
+       Replace all sample data arrays with your actual results
+       ============================================================ -->
+  <script>
+    // ==========================================================
+    // SECTION 1: SAMPLE DATA
+    // Replace these arrays with your actual portfolio results
+    // ==========================================================
+
+    // Date labels — replace with your actual trading dates
+    const dates = [
+      'Jan 23','Feb 23','Mar 23','Apr 23','May 23','Jun 23',
+      'Jul 23','Aug 23','Sep 23','Oct 23','Nov 23','Dec 23',
+      'Jan 24','Feb 24','Mar 24','Apr 24','May 24','Jun 24',
+      'Jul 24','Aug 24','Sep 24','Oct 24','Nov 24','Dec 24',
+      'Jan 25','Feb 25','Mar 25','Apr 25','May 25','Jun 25',
+      'Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25'
+    ];
+
+    // Cumulative returns — replace with results_df cumulative cumprod values
+    // Format: dollar value of $1 invested (e.g. 1.50 = 50% gain)
+    const mptCumulative = [
+      1.00, 1.12, 1.08, 1.18, 1.25, 1.22, 1.35, 1.30, 1.10,
+      1.18, 1.38, 1.42, 1.65, 1.72, 1.68, 1.75, 1.80, 1.72,
+      1.68, 1.75, 1.80, 1.95, 2.10, 2.20, 2.28, 2.15, 2.05,
+      1.90, 1.85, 2.10, 2.40, 2.75, 2.90, 2.65, 2.45, 2.28
+    ];
+
+    const sp500Cumulative = [
+      1.00, 1.04, 1.02, 1.06, 1.10, 1.12, 1.18, 1.15, 1.08,
+      1.12, 1.22, 1.25, 1.28, 1.30, 1.28, 1.32, 1.35, 1.30,
+      1.28, 1.35, 1.40, 1.48, 1.52, 1.55, 1.58, 1.50, 1.45,
+      1.35, 1.32, 1.45, 1.55, 1.62, 1.70, 1.68, 1.72, 1.76
+    ];
+
+    // Three-way comparison (MA strategy)
+    const maCumulative = [
+      1.00, 1.06, 1.04, 1.08, 1.12, 1.14, 1.18, 1.15, 1.10,
+      1.14, 1.22, 1.24, 1.32, 1.36, 1.34, 1.38, 1.42, 1.38,
+      1.35, 1.40, 1.44, 1.52, 1.58, 1.60, 1.65, 1.58, 1.52,
+      1.42, 1.40, 1.52, 1.62, 1.72, 1.80, 1.78, 1.80, 1.68
+    ];
+
+    // Daily returns sample — replace with results_df['portfolio_return'] values
+    const dailyReturnDates = Array.from({length: 60}, (_, i) => `Day ${i + 1}`);
+    const dailyReturns = Array.from({length: 60}, () =>
+      (Math.random() - 0.45) * 0.04
+    );
+
+    // Stock selection frequency — replace with actual appearance_rate values
+    const stockTickers  = ['SPOT','META','NFLX','AMZN','TTWO','AFRM','RBLX','ELF','PG','MNST','DECK','CELH','UL','BROS','CMG','MCD','YUM','LULU','ULTA','XYZ','SBUX','PYPL'];
+    const stockFrequency= [76.2, 67.0, 63.6, 63.6, 58.0, 56.7, 53.4, 51.8, 50.0, 49.8, 49.5, 48.7, 45.8, 45.5, 41.1, 40.7, 40.1, 38.3, 38.1, 32.8, 32.4, 18.7];
+
+    // ==========================================================
+    // SECTION 2: CHART CONFIGURATION
+    // ==========================================================
+
+    // Global Chart.js defaults
+    Chart.defaults.color = '#6b6660';
+    Chart.defaults.font.family = "'DM Sans', sans-serif";
+    Chart.defaults.font.size = 11;
+
+    // ---- Cumulative Return Chart ----
+    new Chart(document.getElementById('cumulativeChart'), {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [
+          {
+            label: 'MPT Portfolio',
+            data: mptCumulative,
+            borderColor: '#7c5cbf',
+            backgroundColor: 'rgba(124,92,191,0.06)',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: '#7c5cbf',
+            fill: true,
+            tension: 0.4,
+          },
+          {
+            label: 'S&P 500 (SPY)',
+            data: sp500Cumulative,
+            borderColor: '#1a8fa8',
+            backgroundColor: 'rgba(26,143,168,0.03)',
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: '#1a8fa8',
+            fill: true,
+            tension: 0.4,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'top',
+            align: 'end',
+            labels: { usePointStyle: true, pointStyle: 'circle', padding: 20 }
+          },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.04)' },
+            ticks: { maxTicksLimit: 8 }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: { callback: v => '$' + v.toFixed(2) }
+          }
+        }
+      }
+    });
+
+    // ---- Daily Returns Chart ----
+    new Chart(document.getElementById('dailyReturnsChart'), {
+      type: 'bar',
+      data: {
+        labels: dailyReturnDates,
+        datasets: [{
+          label: 'Daily Return',
+          data: dailyReturns,
+          backgroundColor: dailyReturns.map(v =>
+            v >= 0 ? 'rgba(92,158,26,0.55)' : 'rgba(217,95,75,0.55)'
+          ),
+          borderColor: dailyReturns.map(v =>
+            v >= 0 ? 'rgba(92,158,26,0.85)' : 'rgba(217,95,75,0.85)'
+          ),
+          borderWidth: 1,
+          borderRadius: 2,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ` ${(ctx.parsed.y * 100).toFixed(2)}%`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { maxTicksLimit: 10 }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: { callback: v => (v * 100).toFixed(1) + '%' }
+          }
+        }
+      }
+    });
+
+    // ---- Stock Allocation Chart ----
+    new Chart(document.getElementById('allocationChart'), {
+      type: 'bar',
+      data: {
+        labels: stockTickers,
+        datasets: [{
+          label: 'Selection Frequency',
+          data: stockFrequency,
+          backgroundColor: stockFrequency.map((v, i) => {
+            const colors = ['rgba(124,92,191,0.65)','rgba(26,143,168,0.65)',
+                            'rgba(92,158,26,0.65)','rgba(196,138,0,0.65)',
+                            'rgba(217,95,75,0.65)'];
+            return colors[i % colors.length];
+          }),
+          borderRadius: 4,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ` Selected ${ctx.parsed.x.toFixed(1)}% of days`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: { callback: v => v + '%' },
+            max: 100
+          },
+          y: {
+            grid: { display: false },
+            ticks: { font: { family: "'DM Mono'", size: 10 } }
+          }
+        }
+      }
+    });
+
+    // ---- Three-Way Strategy Comparison Chart ----
+    new Chart(document.getElementById('strategyChart'), {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [
+          {
+            label: 'MPT Sliding Window',
+            data: mptCumulative,
+            borderColor: '#1a8fa8',
+            backgroundColor: 'transparent',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            tension: 0.4,
+          },
+          {
+            label: 'Moving Average Strategy',
+            data: maCumulative,
+            borderColor: '#7c5cbf',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 0,
+            tension: 0.4,
+          },
+          {
+            label: 'S&P 500 (Buy & Hold)',
+            data: sp500Cumulative,
+            borderColor: '#d95f4b',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 0,
+            tension: 0.4,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'top',
+            align: 'end',
+            labels: { usePointStyle: true, pointStyle: 'circle', padding: 20 }
+          },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(0,0,0,0.04)' },
+            ticks: { maxTicksLimit: 8 }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: { callback: v => '$' + v.toFixed(2) }
+          }
+        }
+      }
+    });
+
+    // ==========================================================
+    // SECTION 3: BRAND CARDS DATA
+    // Add, remove, or edit brand objects below
+    // Fields: name, ticker, category, catClass, icon, relevance (0-100), insight
+    // ==========================================================
+    const brands = [
+      {
+        name: 'Spotify',
+        ticker: 'SPOT',
+        category: 'Entertainment',
+        catClass: 'entertainment',
+        icon: '🎵',
+        relevance: 95,
+        insight: 'Selected by the optimizer 76% of trading days — the most consistent Gen Z holding in the entire universe. Dominant audio platform with strong profitability trajectory.'
+      },
+      {
+        name: 'Meta / Instagram',
+        ticker: 'META',
+        category: 'Entertainment',
+        catClass: 'entertainment',
+        icon: '📱',
+        relevance: 92,
+        insight: 'Reels drives Gen Z discovery. Instagram is the primary social commerce channel for every brand in this universe. Selected 67% of trading days.'
+      },
+      {
+        name: 'Netflix',
+        ticker: 'NFLX',
+        category: 'Entertainment',
+        catClass: 'entertainment',
+        icon: '🎬',
+        relevance: 88,
+        insight: "Emerged as a surprise standout after the universe expansion. Selected 64% of trading days — Gen Z's primary binge-watching platform drives consistent demand."
+      },
+      {
+        name: 'e.l.f. Beauty',
+        ticker: 'ELF',
+        category: 'Beauty',
+        catClass: 'beauty',
+        icon: '💄',
+        relevance: 98,
+        insight: '#1 Gen Z cosmetics brand per Piper Sandler survey. 20 consecutive quarters of revenue growth. Built its entire marketing strategy on TikTok creators.'
+      },
+      {
+        name: 'Celsius Holdings',
+        ticker: 'CELH',
+        category: 'Fitness',
+        catClass: 'fitness',
+        icon: '⚡',
+        relevance: 94,
+        insight: '102% revenue growth in 2022, 102% again in 2023. The clearest case of Gen Z spending translating into financial performance in the entire universe.'
+      },
+      {
+        name: 'Chipotle',
+        ticker: 'CMG',
+        category: 'Food & Bev',
+        catClass: 'food',
+        icon: '🌯',
+        relevance: 90,
+        insight: '#1 Gen Z fast casual restaurant per Piper Sandler for multiple consecutive years. Consistent 15% annual revenue growth driven by digital ordering and loyalty.'
+      },
+      {
+        name: 'Dutch Bros',
+        ticker: 'BROS',
+        category: 'Food & Bev',
+        catClass: 'food',
+        icon: '☕',
+        relevance: 87,
+        insight: '48% then 31% revenue growth. Fanatical Gen Z loyalty app adoption with one of the highest mobile order penetration rates in the coffee industry.'
+      },
+      {
+        name: 'Lululemon',
+        ticker: 'LULU',
+        category: 'Fitness',
+        catClass: 'fitness',
+        icon: '🧘',
+        relevance: 85,
+        insight: 'The cultural uniform of fitness-oriented Gen Z. 10-18% consistent annual growth. Included as the stable sector anchor alongside the high-growth CELH and DECK.'
+      },
+      {
+        name: 'Deckers / Hoka',
+        ticker: 'DECK',
+        category: 'Fitness',
+        catClass: 'fitness',
+        icon: '👟',
+        relevance: 91,
+        insight: 'Hoka revenue grew +58% then +28% year over year. The dominant Gen Z running shoe, displacing Nike in search trend data across the 18-25 demographic.'
+      },
+      {
+        name: 'Amazon',
+        ticker: 'AMZN',
+        category: 'Fintech',
+        catClass: 'fintech',
+        icon: '📦',
+        relevance: 82,
+        insight: 'The fulfillment infrastructure of the Gen Z haul economy. Selected 64% of trading days — low volatility relative to return made it a consistent optimizer favorite.'
+      },
+      {
+        name: 'Block / Cash App',
+        ticker: 'XYZ',
+        category: 'Fintech',
+        catClass: 'fintech',
+        icon: '💳',
+        relevance: 86,
+        insight: "Cash App is Gen Z's primary banking alternative. Peer payments, direct deposit, and investing in one app. Ticker changed from SQ to XYZ on January 21, 2025."
+      },
+      {
+        name: 'Roblox',
+        ticker: 'RBLX',
+        category: 'Entertainment',
+        catClass: 'entertainment',
+        icon: '🎮',
+        relevance: 79,
+        insight: 'Gaming and virtual identity platform. Selected 53% of trading days. Note: core user base skews toward younger teens — older Gen Z (23-28) has largely aged out.'
+      },
+    ];
+
+    // ==========================================================
+    // SECTION 4: RENDER BRAND CARDS
+    // ==========================================================
+    const grid = document.getElementById('brandsGrid');
+    brands.forEach((b, i) => {
+      grid.innerHTML += `
+        <div class="brand-card fade-up delay-${(i % 3) + 1}">
+          <div class="brand-card-top">
+            <div class="brand-icon icon-${b.catClass}">${b.icon}</div>
+            <div class="brand-ticker">${b.ticker}</div>
+          </div>
+          <div class="brand-name">${b.name}</div>
+          <div class="brand-category cat-${b.catClass}">${b.category}</div>
+          <div class="brand-relevance">
+            <span class="relevance-label">Gen Z Relevance</span>
+            <div class="relevance-bar">
+              <div class="relevance-fill cat-${b.catClass}"
+                   style="width:${b.relevance}%; background: var(--bar-color)"></div>
+            </div>
+            <span class="relevance-label">${b.relevance}%</span>
+          </div>
+          <div class="brand-insight">${b.insight}</div>
+        </div>
+      `;
+    });
+
+    // ==========================================================
+    // SECTION 5: FOOTER DATE
+    // ==========================================================
+    document.getElementById('footerDate').textContent =
+      new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+    // ==========================================================
+    // SECTION 6: LIVE DAILY RECOMMENDATION LOADER
+    // Fetches results/daily_recommendation.json written by portfolio.py
+    // Updates automatically every time GitHub Actions runs at 3:55 PM ET
+    // ==========================================================
+
+    async function loadDailyRecommendation() {
+      const loading = document.getElementById('picksLoading');
+      const grid    = document.getElementById('dailyPicksGrid');
+
+      try {
+        const res = await fetch('results/daily_recommendation.json');
+
+        if (!res.ok) {
+          loading.innerHTML = '<div style="font-size:1.5rem;margin-bottom:12px;">📭</div>No recommendation data yet. GitHub Actions will populate this after the first successful run.';
+          return;
+        }
+
+        const data = await res.json();
+
+        // Hide the loading placeholder
+        loading.style.display = 'none';
+
+        // Update the section tag with timestamp
+        document.getElementById('lastUpdated').textContent =
+          'Updated: ' + data.last_updated;
+
+        // Update the four stat cards
+        const retVal = parseFloat(data.expected_return);
+        document.getElementById('todayReturn').textContent =
+          (retVal >= 0 ? '+' : '') + retVal.toFixed(2) + '%';
+        document.getElementById('todayReturn').className =
+          'kpi-value ' + (retVal >= 0 ? 'positive' : 'negative');
+
+        document.getElementById('todaySharpe').textContent =
+          parseFloat(data.sharpe).toFixed(3);
+
+        document.getElementById('windowPeriod').textContent =
+          data.window_start + ' → ' + data.window_end;
+
+        document.getElementById('tradeDate').textContent =
+          data.trade_date;
+
+        // Sector icon and category class lookup
+        const sectorMeta = {
+          'Fitness_Wellness': { cat: 'fitness',       icon: '💪' },
+          'Skincare_Beauty':  { cat: 'beauty',        icon: '✨' },
+          'Food_Beverage':    { cat: 'food',          icon: '🍔' },
+          'Entertainment':    { cat: 'entertainment', icon: '🎵' },
+          'Commerce_Fintech': { cat: 'fintech',       icon: '💳' },
+        };
+
+        // Render stock pick cards
+        grid.innerHTML = data.allocations.map((stock, i) => {
+          const meta     = sectorMeta[stock.sector] || { cat: 'fintech', icon: '📈' };
+          const barPct   = Math.min((stock.weight / 40) * 100, 100); // scale vs 40% max
+          const sectorLabel = stock.sector.replace('_', ' ');
+
+          return `
+            <div class="brand-card fade-up" style="animation-delay:${i * 0.06}s;">
+              <div class="brand-card-top">
+                <div class="brand-icon icon-${meta.cat}">${meta.icon}</div>
+                <div class="brand-ticker">${stock.ticker}</div>
+              </div>
+              <div class="brand-name" style="font-size:0.95rem;">${stock.ticker}</div>
+              <div class="brand-category cat-${meta.cat}" style="margin-bottom:12px;">${sectorLabel}</div>
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                  <span style="font-size:0.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.08em;">Weight</span>
+                  <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:500; color:var(--text-primary);">${stock.weight.toFixed(1)}%</span>
+                </div>
+                <div style="height:4px; background:rgba(0,0,0,0.07); border-radius:2px; overflow:hidden;">
+                  <div style="height:100%; width:${barPct}%; background:var(--lavender); border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (err) {
+        loading.innerHTML = '<div style="font-size:1.5rem;margin-bottom:12px;">⚠️</div>Could not load recommendations. Make sure portfolio.py has run successfully and committed results/daily_recommendation.json to the repo.';
+        console.warn('daily_recommendation.json not found:', err.message);
+      }
+    }
+
+    // Run the loader when the page loads
+    loadDailyRecommendation();
+
+  </script>
+</body>
+</html>
