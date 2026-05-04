@@ -422,7 +422,7 @@ if len(frontier_results) > 1:
 
     plt.tight_layout()
     plt.savefig('results/chart_1.png', dpi=150, bbox_inches='tight')
-plt.close()
+    plt.close()
 
     print('At low risk levels: portfolio is spread across many stocks (diversified)')
     print('At high risk levels: portfolio concentrates in the highest-return stocks')
@@ -477,7 +477,7 @@ if len(frontier_results) > 0:
 
     plt.tight_layout()
     plt.savefig('results/chart_2.png', dpi=150, bbox_inches='tight')
-plt.close()
+    plt.close()
 
     # ---- Performance Summary ----
     port_total  = portfolio_cumret.iloc[-1] - 1
@@ -545,7 +545,7 @@ if len(frontier_results) > 0:
 
     plt.tight_layout()
     plt.savefig('results/chart_3.png', dpi=150, bbox_inches='tight')
-plt.close()
+    plt.close()
 
     print('Sector breakdown of selected portfolio:')
     for sector, stocks in sector_stocks.items():
