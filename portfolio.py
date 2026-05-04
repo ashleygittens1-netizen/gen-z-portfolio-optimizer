@@ -95,8 +95,9 @@ for sector, tickers in sector_map.items():
 # ============================================================
 # DATE RANGE — adjust these to change your analysis window
 # ============================================================
+
 START_DATE = '2023-01-01'
-END_DATE   = '2025-12-31'
+END_DATE   = pd.Timestamp.today().strftime('%Y-%m-%d')
 
 print(f'Downloading data from {START_DATE} to {END_DATE}...')
 print('This may take 30-60 seconds...\n')
@@ -421,7 +422,7 @@ if len(frontier_results) > 1:
     ax.axvline(x=max_sharpe_idx - 0.5, color='red', linestyle='--', linewidth=1.5, label='Max Sharpe')
 
     plt.tight_layout()
-    plt.savefig('results/chart_1.png', dpi=150, bbox_inches='tight')
+    plt.savefig('results/allocation_by_risk.png', dpi=150, bbox_inches='tight')
     plt.close()
 
     print('At low risk levels: portfolio is spread across many stocks (diversified)')
@@ -476,7 +477,7 @@ if len(frontier_results) > 0:
     axes[1].yaxis.set_major_formatter(plt.FuncFormatter(lambda y, _: f'{y:.1%}'))
 
     plt.tight_layout()
-    plt.savefig('results/chart_2.png', dpi=150, bbox_inches='tight')
+    plt.savefig('results/spy_comparison_static.png', dpi=150, bbox_inches='tight')
     plt.close()
 
     # ---- Performance Summary ----
@@ -544,7 +545,7 @@ if len(frontier_results) > 0:
     axes[1].grid(True, alpha=0.3, axis='x')
 
     plt.tight_layout()
-    plt.savefig('results/chart_3.png', dpi=150, bbox_inches='tight')
+    plt.savefig('results/sector_diversification.png', dpi=150, bbox_inches='tight')
     plt.close()
 
     print('Sector breakdown of selected portfolio:')
@@ -624,6 +625,8 @@ print(f'Last trade date:    {daily_returns.index[-1].date()}')
 print(f'\nEstimated runtime:  {len(trade_days) * NUM_RISK_LEVELS * 10 / 60:.0f}–{len(trade_days) * NUM_RISK_LEVELS * 20 / 60:.0f} minutes')
 print('Tip: reduce NUM_RISK_LEVELS to 4 or shorten the date range to speed things up.')
 
+## STEP 13 — Run the Sliding Window Loop
+
 print('Starting sliding window optimization...')
 print('Progress printed every 20 days.\n')
 
@@ -634,8 +637,8 @@ for day_idx in trade_days:
     # ----------------------------------------------------------
     # SLICE THE WINDOW
     # day_idx is the day we TRADE on
-    # [day_idx - WINDOW_SIZE : day_idx] is the history we USE
-    # We never include day_idx itself — that would be cheating
+    # [day_idx - WINDOW_SIZE : day_idx] is the last 60 days of history we USE
+    # We never include day_idx itself — that would be lookahead bias
     # ----------------------------------------------------------
     window_data = daily_returns.iloc[day_idx - WINDOW_SIZE : day_idx]
     trade_date  = daily_returns.index[day_idx]
@@ -655,7 +658,6 @@ for day_idx in trade_days:
     ]
 
     if len(valid_tickers) < NUM_STOCKS:
-        # Not enough valid stocks to pick 10 — skip this day
         continue
 
     mean_ret_valid = mean_ret[valid_tickers]
@@ -666,9 +668,9 @@ for day_idx in trade_days:
     # We scale the risk range to the actual variance of today's stocks
     # so the sweep is always in a sensible range regardless of market conditions
     # ----------------------------------------------------------
-    var_values = np.diag(cov_valid.values)
-    min_risk   = var_values.min() * 0.5
-    max_risk   = var_values.max() * 2.0
+    var_values  = np.diag(cov_valid.values)
+    min_risk    = var_values.min() * 0.5
+    max_risk    = var_values.max() * 2.0
     risk_levels = np.linspace(min_risk, max_risk, NUM_RISK_LEVELS)
 
     day_frontier = []
@@ -689,19 +691,17 @@ for day_idx in trade_days:
             })
 
     if not day_frontier:
-        # Nothing was feasible today — skip
         continue
 
     # ----------------------------------------------------------
     # PICK THE BEST POINT: maximum Sharpe ratio on today's frontier
-    # This is automatic
     # ----------------------------------------------------------
     best_point = max(day_frontier, key=lambda x: x['sharpe'])
     best_alloc = best_point['alloc']
 
     # ----------------------------------------------------------
     # RECORD ACTUAL RETURN
-    # Apply our allocation to what the stocks ACTUALLY did on trade_date
+    # Apply allocation to what stocks ACTUALLY did on trade_date
     # This is the honest test — did our prediction hold up in reality?
     # ----------------------------------------------------------
     actual_return = sum(
@@ -722,7 +722,6 @@ for day_idx in trade_days:
         'window_end':       daily_returns.index[day_idx - 1].date()
     })
 
-    # Print progress every 20 days
     if (day_idx - WINDOW_SIZE) % 20 == 0:
         elapsed  = time.time() - start_total
         pct_done = (day_idx - WINDOW_SIZE) / len(trade_days) * 100
@@ -736,6 +735,92 @@ for day_idx in trade_days:
 total_elapsed = time.time() - start_total
 print(f'\nDone! {len(daily_results)} trading days processed in {total_elapsed:.1f}s '
       f'({total_elapsed/60:.1f} minutes).')
+
+
+# ==============================================================
+# DAY-BY-DAY RESULTS TABLE
+# Every trading day: what was held and what it actually earned
+# ==============================================================
+results_df = pd.DataFrame(daily_results).set_index('date')
+results_df.index = pd.to_datetime(results_df.index)
+
+print('\n')
+print('=' * 95)
+print('  DAY-BY-DAY PORTFOLIO LOG')
+print('=' * 95)
+print(f'  {"Date":<12} {"Actual Ret":>10} {"Exp Ret":>10} {"Sharpe":>8}  {"Stocks Held"}')
+print('-' * 95)
+
+for date, row in results_df.iterrows():
+    stocks_held = sorted(row['allocations'].keys())
+    alloc_str   = '  '.join(
+        f'{t}({row["allocations"][t]:.0%})' for t in stocks_held
+    )
+    print(f'  {str(date.date()):<12} '
+          f'{row["portfolio_return"]:>+10.3%} '
+          f'{row["expected_return"]:>+10.3%} '
+          f'{row["sharpe"]:>8.3f}  '
+          f'{alloc_str}')
+
+print('=' * 95)
+
+
+# ==============================================================
+# TODAY'S RECOMMENDATION (OPTION B)
+# Uses the most recent 60 days of live data to recommend
+# tomorrow's allocation — exactly what GitHub Actions runs daily
+# ==============================================================
+latest_window = daily_returns.tail(WINDOW_SIZE)
+latest_date   = daily_returns.index[-1]
+
+valid_tickers_today = [
+    t for t in available_tickers
+    if latest_window[t].std() > 1e-8
+]
+
+mean_ret_today = latest_window[valid_tickers_today].mean()
+cov_today      = latest_window[valid_tickers_today].cov()
+
+var_values_today  = np.diag(cov_today.values)
+risk_levels_today = np.linspace(
+    var_values_today.min() * 0.5,
+    var_values_today.max() * 2.0,
+    NUM_RISK_LEVELS
+)
+
+today_frontier = []
+for r in risk_levels_today:
+    alloc, ret, risk, status = build_and_solve_model(
+        valid_tickers_today, mean_ret_today, cov_today,
+        sector_map_clean, risk_ceiling=r
+    )
+    if status == 'optimal' and ret is not None:
+        sharpe = (ret - RF_DAILY) / (risk ** 0.5 + 1e-10)
+        today_frontier.append({'risk': risk, 'return': ret, 'sharpe': sharpe, 'alloc': alloc})
+
+if today_frontier:
+    best_today = max(today_frontier, key=lambda x: x['sharpe'])
+    rec_alloc  = best_today['alloc']
+
+    print('\n')
+    print('=' * 60)
+    print(f"  TODAY'S RECOMMENDATION")
+    print(f'  Based on: {latest_window.index[0].date()} → {latest_date.date()}')
+    print(f'  For next trading day after: {latest_date.date()}')
+    print('=' * 60)
+    print(f'  {"Ticker":<8} {"Sector":<22} {"Allocation":>10}  {"Exp Daily Ret":>14}')
+    print('-' * 60)
+
+    for ticker, weight in sorted(rec_alloc.items(), key=lambda x: -x[1]):
+        sector  = ticker_to_sector.get(ticker, 'Unknown').replace('_', ' ')
+        exp_ret = mean_ret_today[ticker]
+        print(f'  {ticker:<8} {sector:<22} {weight:>10.1%}  {exp_ret:>+14.4%}')
+
+    print('=' * 60)
+    print(f'  Expected daily return:   {best_today["return"]:>+.4%}')
+    print(f'  Expected annual return:  {(1 + best_today["return"])**252 - 1:>+.2%}')
+    print(f'  Sharpe ratio:            {best_today["sharpe"]:>.3f}')
+    print('=' * 60)
 
 # Convert list of daily results into a clean DataFrame
 results_df = pd.DataFrame(daily_results).set_index('date')
@@ -910,7 +995,7 @@ axes[1].yaxis.set_major_formatter(
 axes[1].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
-plt.savefig('results/chart_4.png', dpi=150, bbox_inches='tight')
+plt.savefig('results/allocation_heatmap.png', dpi=150, bbox_inches='tight')
 plt.close()
 
 print('\nStock appearance rates (how often each was selected across all trading days):')
@@ -1080,7 +1165,7 @@ axes[1].grid(True, alpha=0.3, axis='y')
 axes[1].set_ylim(0, len(available_tickers) + 1)
 
 plt.tight_layout()
-plt.savefig('results/chart_5.png', dpi=150, bbox_inches='tight')
+plt.savefig('results/three_way_comparison.png', dpi=150, bbox_inches='tight')
 plt.close()
 
 # Compute performance metrics for the MA strategy
