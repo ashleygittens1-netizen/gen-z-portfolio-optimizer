@@ -1,0 +1,7 @@
+pyomo
+yfinance
+pandas
+numpy
+matplotlib
+idaes-pse
+tabulate
