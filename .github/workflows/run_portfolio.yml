@@ -1,29 +1,18 @@
-name: Daily Portfolio Optimization
-
-on:
-  schedule:
-    - cron: '55 19 * * 1-5'
-  workflow_dispatch:
-
-jobs:
-  optimize:
-    runs-on: ubuntu-latest
-
-    steps:
+steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10' 
+          python-version: '3.10'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
--       name: Install system dependencies
+
+      - name: Install system dependencies
         run: sudo apt-get install -y liblapack3 liblapack-dev libopenblas-dev
-        
+
       - name: Install IPOPT solver
         run: |
           idaes get-extensions --to ./bin
