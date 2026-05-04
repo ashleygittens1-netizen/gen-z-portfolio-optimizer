@@ -1,4 +1,15 @@
-steps:
+name: Daily Portfolio Optimization
+
+on:
+  schedule:
+    - cron: '55 19 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
