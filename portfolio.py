@@ -1343,3 +1343,48 @@ print('Saved: results/summary.txt')
 
 print('\nAll results saved to the results/ folder.')
 print('These are the files GitHub Actions will commit back to your repo.')
+# ============================================================
+# SAVE TODAY'S RECOMMENDATION FOR THE LIVE DASHBOARD
+# ============================================================
+import json
+from datetime import datetime
+
+if len(daily_results) > 0:
+    latest = daily_results[-1]
+    today_alloc = latest['allocations']
+
+    dashboard_data = {
+        'last_updated':     datetime.now().strftime('%Y-%m-%d %H:%M UTC'),
+        'trade_date':       str(latest['date'].date()),
+        'window_start':     str(latest['window_start']),
+        'window_end':       str(latest['window_end']),
+        'expected_return':  round(latest['expected_return'] * 100, 4),
+        'portfolio_risk':   round(latest['portfolio_risk'], 8),
+        'sharpe':           round(latest['sharpe'], 4),
+        'actual_return':    round(latest['portfolio_return'] * 100, 4),
+        'allocations': [
+            {
+                'ticker':  ticker,
+                'weight':  round(weight * 100, 2),
+                'sector':  ticker_to_sector.get(ticker, 'Unknown')
+            }
+            for ticker, weight in sorted(
+                today_alloc.items(),
+                key=lambda x: -x[1]
+            )
+            if weight > 0.001
+        ],
+        'cumulative_return_pct': round((port_aligned.iloc[-1] - 1) * 100, 2),
+        'spy_return_pct':        round((spy_cumret.iloc[-1] - 1) * 100, 2),
+        'sharpe_annual':         round(port_sharpe_annual, 4),
+        'max_drawdown_pct':      round(port_dd * 100, 2),
+        'win_rate_pct':          round(win_rate * 100, 2),
+        'trading_days':          len(daily_results),
+    }
+
+    with open('results/daily_recommendation.json', 'w') as f:
+        json.dump(dashboard_data, f, indent=2)
+
+    print('Saved: results/daily_recommendation.json')
+    print(f'Trade date: {latest["date"].date()}')
+    print(f'Stocks selected: {list(today_alloc.keys())}')
