@@ -1090,7 +1090,7 @@
       </div>
 
       <!-- Constraint summary row -->
-      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px;" class="fade-up">
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-bottom:32px;" class="fade-up">
         <div class="chart-card">
           <div class="chart-header">
             <div>
@@ -1127,6 +1127,37 @@
             The optimizer whittled 22 stocks down to exactly 10 every trading day. At least 1 stock was selected from each of the 5 sectors.
           </p>
         </div>
+      </div>
+
+      <!-- Sector allocation charts — matching your Step 10 output -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;" class="fade-up">
+
+        <!-- Pie chart: Portfolio Weight by Sector -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Portfolio Weight by Sector</div>
+              <div class="chart-subtitle">Max Sharpe allocation · static optimal portfolio</div>
+            </div>
+          </div>
+          <div class="chart-container" style="height:280px;">
+            <canvas id="sectorPieChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Bar chart: Individual Stock Allocations -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Individual Stock Allocations</div>
+              <div class="chart-subtitle">Max Sharpe portfolio · 5% min · 40% max constraints</div>
+            </div>
+          </div>
+          <div class="chart-container" style="height:280px;">
+            <canvas id="stockAllocBar"></canvas>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1419,69 +1450,83 @@
         </div>
       </div>
 
-      <div class="takeaways-grid">
+      <div class="takeaways-grid" style="grid-template-columns: repeat(3,1fr);">
 
         <div class="takeaway-card fade-up delay-1">
           <div class="takeaway-number">01</div>
           <div class="takeaway-tag tag-performance">Performance</div>
-          <div class="takeaway-title">MPT matched the S&P 500 on total return with active Gen Z exposure</div>
+          <div class="takeaway-title">MPT identified top Gen Z stocks driving efficient returns</div>
           <p class="takeaway-body">
-            The Gen Z Digital Pulse portfolio returned 94.60% versus the S&P 500's
-            93.11% — a 1.49 percentage point outperformance using a genuine forward-looking
-            60-day sliding window. Every allocation decision used only data available
-            at that moment — no hindsight, no future peeking.
+            The optimizer consistently allocated to Spotify and Meta, as they delivered
+            the strongest return per unit of risk during the study period. Both companies
+            monetized Gen Z attention at scale, and key business shifts — including
+            Spotify's first profitable year and Meta's Reels pivot — were captured in
+            real time. This shows the model was reacting to true market changes, not
+            just historical trends.
           </p>
         </div>
 
         <div class="takeaway-card fade-up delay-2">
           <div class="takeaway-number">02</div>
           <div class="takeaway-tag tag-risk">Risk</div>
-          <div class="takeaway-title">Higher volatility and deeper drawdowns are the cost of concentration</div>
+          <div class="takeaway-title">Higher volatility reflects concentrated growth exposure</div>
           <p class="takeaway-body">
-            Daily volatility of 1.70% versus SPY's 0.95% and a maximum drawdown
-            of −36.77% versus −18.76% confirm the risk of a concentrated thematic
-            strategy. The S&P 500 wins on Sharpe ratio (1.14 vs 0.74). For risk-averse
-            clients, passive indexing remains superior. For aggressive growth mandates,
-            our model delivers comparable returns with active brand exposure.
+            Daily volatility of 1.70% versus the S&P 500's 0.95% and a maximum drawdown
+            of −36.77% highlight the cost of a concentrated, thematic strategy. While
+            returns were slightly higher, the S&P 500 delivered a stronger Sharpe ratio.
+            This suggests the Gen Z portfolio is better suited as a satellite allocation
+            rather than a core holding.
           </p>
         </div>
 
         <div class="takeaway-card fade-up delay-3">
           <div class="takeaway-number">03</div>
           <div class="takeaway-tag tag-culture">Culture</div>
-          <div class="takeaway-title">Both strategies independently confirmed the same top holdings</div>
+          <div class="takeaway-title">Entertainment behaved like a core utility for Gen Z</div>
           <p class="takeaway-body">
-            The MPT optimizer and the Moving Average Golden Cross strategy independently
-            identified Spotify (81.2% Golden Cross), Amazon (75.6%), and Meta (74.8%)
-            as their top signals. Two completely different mathematical approaches arrived
-            at the same conclusion — a strong indicator of genuine Gen Z brand momentum,
-            not just model artifact.
+            Streaming and social media showed strong, persistent signals, with Spotify
+            and Meta maintaining Golden Cross signals over 80% and 74% of trading days.
+            This reflects how Gen Z treats these platforms as essential, recurring
+            spending — giving them stability typically associated with defensive assets
+            despite being growth-oriented companies.
           </p>
         </div>
 
         <div class="takeaway-card fade-up delay-1">
           <div class="takeaway-number">04</div>
           <div class="takeaway-tag tag-brand">Brand Signal</div>
-          <div class="takeaway-title">Revenue growth separated real Gen Z brands from vibe picks</div>
+          <div class="takeaway-title">Sustainable brands outperformed trend-driven growth</div>
           <p class="takeaway-body">
-            Stocks selected using Piper Sandler survey data and Google Trends
-            acceleration — filtered by SEC revenue growth — consistently outperformed
-            brand recognition alone. Celsius (102% YoY growth), e.l.f. Beauty (76%),
-            and Dutch Bros (48%) were the clearest cases of cultural relevance
-            directly translating into financial performance.
+            Revenue growth combined with strong user adoption separated long-term winners
+            from short-term trends. While companies like Celsius showed high growth,
+            increased competition reduced their effectiveness in the portfolio. Brands
+            without strong switching costs behaved more like short-term trades than
+            durable investments.
           </p>
         </div>
 
         <div class="takeaway-card fade-up delay-2">
           <div class="takeaway-number">05</div>
           <div class="takeaway-tag tag-strategy">Strategy</div>
-          <div class="takeaway-title">The Moving Average strategy underperformed both benchmarks</div>
+          <div class="takeaway-title">Convergence of models increased confidence in selections</div>
           <p class="takeaway-body">
-            The Golden Cross strategy returned only 59.45% — below both MPT (94.60%)
-            and the S&P 500 (93.11%). Its Sharpe ratio of 0.60 was the lowest of all
-            three. Holding an average of 13.1 stocks in equal weights diluted the
-            impact of top performers. This confirms that disciplined optimization
-            with fixed 10-stock selection beats rules-based signal trading for this universe.
+            Both the MPT optimizer and the Golden Cross strategy independently selected
+            the same top stocks, including Spotify and Meta. This alignment between a
+            risk-return model and a momentum signal suggests stronger conviction in those
+            positions and provides a practical screening shortcut for future
+            portfolio construction.
+          </p>
+        </div>
+
+        <div class="takeaway-card fade-up delay-3">
+          <div class="takeaway-number">06</div>
+          <div class="takeaway-tag tag-performance" style="background:rgba(26,143,168,0.10); color:var(--electric); border-color:rgba(26,143,168,0.20);">Frontier Insight</div>
+          <div class="takeaway-title">The model continuously moved toward the efficient frontier</div>
+          <p class="takeaway-body">
+            The portfolio was rebalanced daily using a sliding window, allowing it to
+            adapt to new data and reposition along the efficient frontier. By repeatedly
+            targeting the maximum Sharpe ratio, the model dynamically adjusted allocations
+            to maintain the most efficient balance between risk and return over time.
           </p>
         </div>
 
@@ -1502,7 +1547,7 @@
         <div class="footer-meta">
           <!-- REPLACE YOUR NAME with your actual name -->
           <div>OPIM 5641 · University of Connecticut</div>
-          <div style="margin-top:4px;">Author: YOUR NAME &nbsp;·&nbsp; <span id="footerDate"></span></div>
+          <div style="margin-top:4px;">Author: Ashley Gittens &nbsp;·&nbsp; <span id="footerDate"></span></div>
         </div>
       </div>
     </div>
@@ -1944,6 +1989,156 @@
           <div class="brand-insight">${b.insight}</div>
         </div>
       `;
+    });
+
+    // ==========================================================
+    // SECTOR PIE CHART — matches your Step 10 output
+    // Update these values if your allocation changes
+    // ==========================================================
+    new Chart(document.getElementById('sectorPieChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Entertainment', 'Skincare & Beauty', 'Fitness & Wellness', 'Commerce & Fintech', 'Food & Beverage'],
+        datasets: [{
+          data: [64.2, 8.4, 9.7, 11.1, 6.6],
+          backgroundColor: [
+            'rgba(124,92,191,0.75)',
+            'rgba(196,138,0,0.75)',
+            'rgba(92,158,26,0.75)',
+            'rgba(26,143,168,0.75)',
+            'rgba(217,95,75,0.75)',
+          ],
+          borderColor: '#f2efe9',
+          borderWidth: 3,
+          hoverOffset: 8,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '55%',
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle',
+              padding: 14,
+              font: { size: 11 }
+            }
+          },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ` ${ctx.label}: ${ctx.parsed.toFixed(1)}%`
+            }
+          }
+        }
+      }
+    });
+
+    // ==========================================================
+    // STOCK ALLOCATION BAR CHART — matches your Step 10 output
+    // Update tickers and weights to match your actual Max Sharpe portfolio
+    // ==========================================================
+    const allocTickers = ['META','SPOT','NFLX','MNST','AFRM','UL','AMZN','YUM','TTWO','PG'];
+    const allocWeights = [25.1, 24.6, 9.9, 9.8, 6.4, 5.6, 5.4, 5.3, 5.2, 2.7];
+
+    // Color each bar by sector
+    const allocSectorColors = {
+      'META': 'rgba(124,92,191,0.7)',
+      'SPOT': 'rgba(124,92,191,0.7)',
+      'NFLX': 'rgba(124,92,191,0.7)',
+      'TTWO': 'rgba(124,92,191,0.7)',
+      'MNST': 'rgba(92,158,26,0.7)',
+      'AFRM': 'rgba(26,143,168,0.7)',
+      'AMZN': 'rgba(26,143,168,0.7)',
+      'UL':   'rgba(196,138,0,0.7)',
+      'PG':   'rgba(196,138,0,0.7)',
+      'YUM':  'rgba(217,95,75,0.7)',
+    };
+
+    new Chart(document.getElementById('stockAllocBar'), {
+      type: 'bar',
+      data: {
+        labels: allocTickers,
+        datasets: [
+          {
+            label: 'Allocation Weight',
+            data: allocWeights,
+            backgroundColor: allocTickers.map(t => allocSectorColors[t] || 'rgba(124,92,191,0.6)'),
+            borderRadius: 4,
+            borderSkipped: false,
+          },
+          // Min weight reference line (5%)
+          {
+            label: 'Min Weight (5%)',
+            data: allocTickers.map(() => 5),
+            type: 'line',
+            borderColor: 'rgba(217,95,75,0.7)',
+            borderWidth: 1.5,
+            borderDash: [5, 4],
+            pointRadius: 0,
+            fill: false,
+          },
+          // Max weight reference line (40%)
+          {
+            label: 'Max Weight (40%)',
+            data: allocTickers.map(() => 40),
+            type: 'line',
+            borderColor: 'rgba(217,95,75,0.5)',
+            borderWidth: 1.5,
+            borderDash: [5, 4],
+            pointRadius: 0,
+            fill: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            align: 'end',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle',
+              padding: 14,
+              font: { size: 10 },
+              filter: item => item.datasetIndex === 0 ? false : true
+            }
+          },
+          tooltip: {
+            backgroundColor: '#ffffff',
+            borderColor: 'rgba(0,0,0,0.08)',
+            borderWidth: 1,
+            titleColor: '#1e1b16',
+            bodyColor: '#6b6660',
+            callbacks: {
+              label: ctx => ctx.datasetIndex === 0
+                ? ` Allocation: ${ctx.parsed.y.toFixed(1)}%`
+                : ` ${ctx.dataset.label}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { font: { family: "'DM Mono'", size: 10 } }
+          },
+          y: {
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: { callback: v => v + '%' },
+            min: 0,
+            max: 45,
+          }
+        }
+      }
     });
 
     // ==========================================================
