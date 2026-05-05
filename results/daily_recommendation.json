@@ -1,0 +1,68 @@
+{
+  "last_updated": "2026-05-05 02:50 UTC",
+  "trade_date": "2026-05-04",
+  "window_start": "2026-02-05",
+  "window_end": "2026-05-01",
+  "expected_return": 0.3049,
+  "portfolio_risk": 0.00050374,
+  "sharpe": 0.127,
+  "actual_return": -0.0862,
+  "allocations": [
+    {
+      "ticker": "XYZ",
+      "weight": 40.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 20.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "AFRM",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "AMZN",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "BROS",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "MNST",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "NFLX",
+      "weight": 5.0,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "TTWO",
+      "weight": 5.0,
+      "sector": "Entertainment"
+    }
+  ],
+  "cumulative_return_pct": 94.43,
+  "spy_return_pct": 84.82,
+  "sharpe_annual": 0.7488,
+  "max_drawdown_pct": -36.77,
+  "win_rate_pct": 54.71,
+  "trading_days": 775
+}
