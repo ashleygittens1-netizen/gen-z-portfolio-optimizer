@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-05 22:45 UTC",
-  "trade_date": "2026-05-04",
-  "window_start": "2026-02-05",
-  "window_end": "2026-05-01",
-  "expected_return": 0.3049,
-  "portfolio_risk": 0.00050374,
-  "sharpe": 0.127,
-  "actual_return": -0.0862,
+  "last_updated": "2026-05-06 22:39 UTC",
+  "trade_date": "2026-05-05",
+  "window_start": "2026-02-06",
+  "window_end": "2026-05-04",
+  "expected_return": 0.3721,
+  "portfolio_risk": 0.00047043,
+  "sharpe": 0.1624,
+  "actual_return": -2.0009,
   "allocations": [
     {
       "ticker": "XYZ",
@@ -49,20 +49,20 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "SBUX",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "TTWO",
       "weight": 5.0,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 4.99,
+      "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 94.43,
-  "spy_return_pct": 84.82,
-  "sharpe_annual": 0.7488,
+  "cumulative_return_pct": 90.54,
+  "spy_return_pct": 86.31,
+  "sharpe_annual": 0.7234,
   "max_drawdown_pct": -36.77,
-  "win_rate_pct": 54.71,
-  "trading_days": 775
+  "win_rate_pct": 54.64,
+  "trading_days": 776
 }
