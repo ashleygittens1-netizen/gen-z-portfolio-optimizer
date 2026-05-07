@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-06 22:39 UTC",
-  "trade_date": "2026-05-05",
-  "window_start": "2026-02-06",
-  "window_end": "2026-05-04",
-  "expected_return": 0.3721,
-  "portfolio_risk": 0.00047043,
-  "sharpe": 0.1624,
-  "actual_return": -2.0009,
+  "last_updated": "2026-05-07 23:17 UTC",
+  "trade_date": "2026-05-06",
+  "window_start": "2026-02-09",
+  "window_end": "2026-05-05",
+  "expected_return": 0.3292,
+  "portfolio_risk": 0.00046429,
+  "sharpe": 0.1436,
+  "actual_return": 0.2534,
   "allocations": [
     {
       "ticker": "XYZ",
@@ -14,7 +14,7 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "AMZN",
       "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
@@ -24,14 +24,9 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AMZN",
+      "ticker": "COTY",
       "weight": 5.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "BROS",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "MNST",
@@ -44,9 +39,14 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "PG",
+      "ticker": "PYPL",
       "weight": 5.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "TTWO",
@@ -54,15 +54,15 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "SBUX",
-      "weight": 4.99,
+      "ticker": "BROS",
+      "weight": 4.94,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 90.54,
-  "spy_return_pct": 86.31,
-  "sharpe_annual": 0.7234,
+  "cumulative_return_pct": 91.02,
+  "spy_return_pct": 88.9,
+  "sharpe_annual": 0.7257,
   "max_drawdown_pct": -36.77,
-  "win_rate_pct": 54.64,
-  "trading_days": 776
+  "win_rate_pct": 54.7,
+  "trading_days": 777
 }
