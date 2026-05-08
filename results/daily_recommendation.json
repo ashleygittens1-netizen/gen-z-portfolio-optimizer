@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-05-07 23:17 UTC",
-  "trade_date": "2026-05-06",
-  "window_start": "2026-02-09",
-  "window_end": "2026-05-05",
-  "expected_return": 0.3292,
-  "portfolio_risk": 0.00046429,
-  "sharpe": 0.1436,
-  "actual_return": 0.2534,
+  "last_updated": "2026-05-08 22:46 UTC",
+  "trade_date": "2026-05-07",
+  "window_start": "2026-02-10",
+  "window_end": "2026-05-06",
+  "expected_return": 0.3347,
+  "portfolio_risk": 0.00031271,
+  "sharpe": 0.1781,
+  "actual_return": -1.519,
   "allocations": [
     {
-      "ticker": "XYZ",
+      "ticker": "AMZN",
       "weight": 40.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AMZN",
+      "ticker": "XYZ",
       "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
@@ -55,14 +55,14 @@
     },
     {
       "ticker": "BROS",
-      "weight": 4.94,
+      "weight": 4.99,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 91.02,
-  "spy_return_pct": 88.9,
-  "sharpe_annual": 0.7257,
+  "cumulative_return_pct": 88.12,
+  "spy_return_pct": 88.32,
+  "sharpe_annual": 0.7064,
   "max_drawdown_pct": -36.77,
-  "win_rate_pct": 54.7,
-  "trading_days": 777
+  "win_rate_pct": 54.63,
+  "trading_days": 778
 }
