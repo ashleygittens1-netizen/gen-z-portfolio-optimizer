@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-08 22:46 UTC",
-  "trade_date": "2026-05-07",
-  "window_start": "2026-02-10",
-  "window_end": "2026-05-06",
-  "expected_return": 0.3347,
-  "portfolio_risk": 0.00031271,
-  "sharpe": 0.1781,
-  "actual_return": -1.519,
+  "last_updated": "2026-05-11 23:17 UTC",
+  "trade_date": "2026-05-08",
+  "window_start": "2026-02-11",
+  "window_end": "2026-05-07",
+  "expected_return": 0.3107,
+  "portfolio_risk": 0.00031814,
+  "sharpe": 0.1631,
+  "actual_return": 1.6878,
   "allocations": [
     {
       "ticker": "AMZN",
@@ -59,10 +59,10 @@
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 88.12,
-  "spy_return_pct": 88.32,
-  "sharpe_annual": 0.7064,
+  "cumulative_return_pct": 91.3,
+  "spy_return_pct": 89.87,
+  "sharpe_annual": 0.7255,
   "max_drawdown_pct": -36.77,
-  "win_rate_pct": 54.63,
-  "trading_days": 778
+  "win_rate_pct": 54.69,
+  "trading_days": 779
 }
