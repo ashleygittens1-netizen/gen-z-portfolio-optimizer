@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-14 23:17 UTC",
-  "trade_date": "2026-05-13",
-  "window_start": "2026-02-17",
-  "window_end": "2026-05-12",
-  "expected_return": 0.4489,
-  "portfolio_risk": 0.00047724,
-  "sharpe": 0.1964,
-  "actual_return": -2.2302,
+  "last_updated": "2026-05-15 22:45 UTC",
+  "trade_date": "2026-05-14",
+  "window_start": "2026-02-18",
+  "window_end": "2026-05-13",
+  "expected_return": 0.399,
+  "portfolio_risk": 0.00038734,
+  "sharpe": 0.1927,
+  "actual_return": 1.4348,
   "allocations": [
     {
       "ticker": "XYZ",
@@ -14,19 +14,14 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AFRM",
+      "ticker": "AMZN",
       "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AMZN",
+      "ticker": "AFRM",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "COTY",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "MNST",
@@ -37,6 +32,11 @@
       "ticker": "NFLX",
       "weight": 5.0,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "PYPL",
@@ -54,15 +54,15 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "BROS",
+      "ticker": "META",
       "weight": 4.99,
-      "sector": "Food_Beverage"
+      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 82.74,
-  "spy_return_pct": 91.08,
-  "sharpe_annual": 0.6681,
+  "cumulative_return_pct": 85.37,
+  "spy_return_pct": 92.59,
+  "sharpe_annual": 0.6842,
   "max_drawdown_pct": -37.81,
-  "win_rate_pct": 54.48,
-  "trading_days": 782
+  "win_rate_pct": 54.53,
+  "trading_days": 783
 }
