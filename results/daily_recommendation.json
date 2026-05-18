@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-15 22:45 UTC",
-  "trade_date": "2026-05-14",
-  "window_start": "2026-02-18",
-  "window_end": "2026-05-13",
-  "expected_return": 0.399,
-  "portfolio_risk": 0.00038734,
-  "sharpe": 0.1927,
-  "actual_return": 1.4348,
+  "last_updated": "2026-05-18 23:46 UTC",
+  "trade_date": "2026-05-15",
+  "window_start": "2026-02-19",
+  "window_end": "2026-05-14",
+  "expected_return": 0.3848,
+  "portfolio_risk": 0.00046136,
+  "sharpe": 0.1699,
+  "actual_return": -1.2453,
   "allocations": [
     {
       "ticker": "XYZ",
@@ -14,12 +14,12 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AMZN",
+      "ticker": "AFRM",
       "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AFRM",
+      "ticker": "AMZN",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
@@ -59,10 +59,10 @@
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 85.37,
-  "spy_return_pct": 92.59,
-  "sharpe_annual": 0.6842,
+  "cumulative_return_pct": 83.06,
+  "spy_return_pct": 90.27,
+  "sharpe_annual": 0.6685,
   "max_drawdown_pct": -37.81,
-  "win_rate_pct": 54.53,
-  "trading_days": 783
+  "win_rate_pct": 54.46,
+  "trading_days": 784
 }
