@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-19 23:48 UTC",
-  "trade_date": "2026-05-18",
-  "window_start": "2026-02-20",
-  "window_end": "2026-05-15",
-  "expected_return": 0.3791,
-  "portfolio_risk": 0.00047765,
-  "sharpe": 0.1644,
-  "actual_return": 0.1527,
+  "last_updated": "2026-05-21 00:02 UTC",
+  "trade_date": "2026-05-19",
+  "window_start": "2026-02-23",
+  "window_end": "2026-05-18",
+  "expected_return": 0.3762,
+  "portfolio_risk": 0.00047773,
+  "sharpe": 0.163,
+  "actual_return": -0.9875,
   "allocations": [
     {
       "ticker": "XYZ",
@@ -59,10 +59,10 @@
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 83.34,
-  "spy_return_pct": 90.14,
-  "sharpe_annual": 0.6696,
-  "max_drawdown_pct": -37.81,
-  "win_rate_pct": 54.52,
-  "trading_days": 785
+  "cumulative_return_pct": 81.53,
+  "spy_return_pct": 88.87,
+  "sharpe_annual": 0.6571,
+  "max_drawdown_pct": -38.23,
+  "win_rate_pct": 54.45,
+  "trading_days": 786
 }
