@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-22 21:05 UTC",
-  "trade_date": "2026-05-21",
-  "window_start": "2026-02-25",
-  "window_end": "2026-05-20",
-  "expected_return": 0.4311,
-  "portfolio_risk": 0.00047576,
-  "sharpe": 0.1886,
-  "actual_return": -0.672,
+  "last_updated": "2026-05-25 20:58 UTC",
+  "trade_date": "2026-05-22",
+  "window_start": "2026-02-26",
+  "window_end": "2026-05-21",
+  "expected_return": 0.4124,
+  "portfolio_risk": 0.00047808,
+  "sharpe": 0.1795,
+  "actual_return": -1.4386,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -49,20 +49,20 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "TTWO",
+      "ticker": "SPOT",
       "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "META",
-      "weight": 4.98,
+      "ticker": "TTWO",
+      "weight": 5.0,
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 83.88,
-  "spy_return_pct": 91.18,
-  "sharpe_annual": 0.6707,
-  "max_drawdown_pct": -38.23,
-  "win_rate_pct": 54.44,
-  "trading_days": 788
+  "cumulative_return_pct": 81.23,
+  "spy_return_pct": 91.94,
+  "sharpe_annual": 0.6527,
+  "max_drawdown_pct": -38.33,
+  "win_rate_pct": 54.37,
+  "trading_days": 789
 }
