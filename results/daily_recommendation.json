@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-26 21:27 UTC",
-  "trade_date": "2026-05-22",
-  "window_start": "2026-02-26",
-  "window_end": "2026-05-21",
-  "expected_return": 0.4124,
-  "portfolio_risk": 0.00047808,
-  "sharpe": 0.1795,
-  "actual_return": -1.4386,
+  "last_updated": "2026-05-27 21:34 UTC",
+  "trade_date": "2026-05-26",
+  "window_start": "2026-02-27",
+  "window_end": "2026-05-22",
+  "expected_return": 0.3229,
+  "portfolio_risk": 0.0003946,
+  "sharpe": 0.1526,
+  "actual_return": 2.4204,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -14,19 +14,14 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "XYZ",
-      "weight": 20.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "AMZN",
-      "weight": 5.0,
+      "weight": 19.99,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "BROS",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
+      "ticker": "XYZ",
+      "weight": 5.01,
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "MNST",
@@ -57,12 +52,17 @@
       "ticker": "TTWO",
       "weight": 5.0,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "BROS",
+      "weight": 4.99,
+      "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 81.24,
-  "spy_return_pct": 91.94,
-  "sharpe_annual": 0.6527,
+  "cumulative_return_pct": 85.62,
+  "spy_return_pct": 93.21,
+  "sharpe_annual": 0.6798,
   "max_drawdown_pct": -38.33,
-  "win_rate_pct": 54.37,
-  "trading_days": 789
+  "win_rate_pct": 54.43,
+  "trading_days": 790
 }
