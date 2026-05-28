@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-27 21:34 UTC",
-  "trade_date": "2026-05-26",
-  "window_start": "2026-02-27",
-  "window_end": "2026-05-22",
-  "expected_return": 0.3229,
-  "portfolio_risk": 0.0003946,
-  "sharpe": 0.1526,
-  "actual_return": 2.4204,
+  "last_updated": "2026-05-28 21:51 UTC",
+  "trade_date": "2026-05-27",
+  "window_start": "2026-03-02",
+  "window_end": "2026-05-26",
+  "expected_return": 0.3817,
+  "portfolio_risk": 0.00042285,
+  "sharpe": 0.176,
+  "actual_return": 1.6174,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -15,23 +15,18 @@
     },
     {
       "ticker": "AMZN",
-      "weight": 19.99,
+      "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "XYZ",
-      "weight": 5.01,
-      "sector": "Commerce_Fintech"
+      "ticker": "BROS",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "MNST",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
-    },
-    {
-      "ticker": "NFLX",
-      "weight": 5.0,
-      "sector": "Entertainment"
     },
     {
       "ticker": "PG",
@@ -54,15 +49,25 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "BROS",
-      "weight": 4.99,
-      "sector": "Food_Beverage"
+      "ticker": "XYZ",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 4.29,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "DECK",
+      "weight": 0.7,
+      "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 85.62,
-  "spy_return_pct": 93.21,
-  "sharpe_annual": 0.6798,
+  "cumulative_return_pct": 88.62,
+  "spy_return_pct": 93.18,
+  "sharpe_annual": 0.6978,
   "max_drawdown_pct": -38.33,
-  "win_rate_pct": 54.43,
-  "trading_days": 790
+  "win_rate_pct": 54.49,
+  "trading_days": 791
 }
