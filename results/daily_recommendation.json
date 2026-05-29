@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-05-28 21:51 UTC",
-  "trade_date": "2026-05-27",
-  "window_start": "2026-03-02",
-  "window_end": "2026-05-26",
-  "expected_return": 0.3817,
-  "portfolio_risk": 0.00042285,
-  "sharpe": 0.176,
-  "actual_return": 1.6174,
+  "last_updated": "2026-05-29 21:33 UTC",
+  "trade_date": "2026-05-28",
+  "window_start": "2026-03-03",
+  "window_end": "2026-05-27",
+  "expected_return": 0.427,
+  "portfolio_risk": 0.00041859,
+  "sharpe": 0.199,
+  "actual_return": 1.7071,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -22,6 +22,11 @@
       "ticker": "BROS",
       "weight": 5.0,
       "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "DECK",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
     },
     {
       "ticker": "MNST",
@@ -52,22 +57,12 @@
       "ticker": "XYZ",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "PYPL",
-      "weight": 4.29,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "DECK",
-      "weight": 0.7,
-      "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 88.62,
-  "spy_return_pct": 93.18,
-  "sharpe_annual": 0.6978,
+  "cumulative_return_pct": 91.84,
+  "spy_return_pct": 94.24,
+  "sharpe_annual": 0.7168,
   "max_drawdown_pct": -38.33,
-  "win_rate_pct": 54.49,
-  "trading_days": 791
+  "win_rate_pct": 54.55,
+  "trading_days": 792
 }
