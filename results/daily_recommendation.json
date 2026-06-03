@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-02 22:17 UTC",
-  "trade_date": "2026-06-01",
-  "window_start": "2026-03-05",
-  "window_end": "2026-05-29",
-  "expected_return": 0.3913,
-  "portfolio_risk": 0.00041263,
-  "sharpe": 0.1829,
-  "actual_return": -1.2046,
+  "last_updated": "2026-06-03 22:22 UTC",
+  "trade_date": "2026-06-02",
+  "window_start": "2026-03-06",
+  "window_end": "2026-06-01",
+  "expected_return": 0.3425,
+  "portfolio_risk": 0.00041368,
+  "sharpe": 0.1586,
+  "actual_return": -1.8772,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -55,14 +55,14 @@
     },
     {
       "ticker": "PYPL",
-      "weight": 4.96,
+      "weight": 4.99,
       "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 89.48,
-  "spy_return_pct": 95.26,
-  "sharpe_annual": 0.7007,
+  "cumulative_return_pct": 85.92,
+  "spy_return_pct": 95.52,
+  "sharpe_annual": 0.6775,
   "max_drawdown_pct": -38.33,
-  "win_rate_pct": 54.41,
-  "trading_days": 794
+  "win_rate_pct": 54.34,
+  "trading_days": 795
 }
