@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-04 21:23 UTC",
-  "trade_date": "2026-06-03",
-  "window_start": "2026-03-09",
-  "window_end": "2026-06-02",
-  "expected_return": 0.3415,
-  "portfolio_risk": 0.00041406,
-  "sharpe": 0.1581,
-  "actual_return": -4.0541,
+  "last_updated": "2026-06-05 21:17 UTC",
+  "trade_date": "2026-06-04",
+  "window_start": "2026-03-10",
+  "window_end": "2026-06-03",
+  "expected_return": 0.2888,
+  "portfolio_risk": 0.00041122,
+  "sharpe": 0.1327,
+  "actual_return": 1.5087,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -14,8 +14,13 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AMZN",
+      "ticker": "MNST",
       "weight": 20.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "AMZN",
+      "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
     {
@@ -29,9 +34,9 @@
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "MNST",
+      "ticker": "META",
       "weight": 5.0,
-      "sector": "Fitness_Wellness"
+      "sector": "Entertainment"
     },
     {
       "ticker": "PG",
@@ -52,17 +57,12 @@
       "ticker": "XYZ",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "PYPL",
-      "weight": 4.99,
-      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 78.39,
-  "spy_return_pct": 94.15,
-  "sharpe_annual": 0.6269,
+  "cumulative_return_pct": 81.08,
+  "spy_return_pct": 94.88,
+  "sharpe_annual": 0.6436,
   "max_drawdown_pct": -39.3,
-  "win_rate_pct": 54.27,
-  "trading_days": 796
+  "win_rate_pct": 54.33,
+  "trading_days": 797
 }
