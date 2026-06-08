@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-05 21:17 UTC",
-  "trade_date": "2026-06-04",
-  "window_start": "2026-03-10",
-  "window_end": "2026-06-03",
-  "expected_return": 0.2888,
-  "portfolio_risk": 0.00041122,
-  "sharpe": 0.1327,
-  "actual_return": 1.5087,
+  "last_updated": "2026-06-08 21:33 UTC",
+  "trade_date": "2026-06-05",
+  "window_start": "2026-03-11",
+  "window_end": "2026-06-04",
+  "expected_return": 0.3292,
+  "portfolio_risk": 0.00045528,
+  "sharpe": 0.145,
+  "actual_return": -4.078,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -14,13 +14,8 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "MNST",
-      "weight": 20.0,
-      "sector": "Fitness_Wellness"
-    },
-    {
       "ticker": "AMZN",
-      "weight": 5.0,
+      "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
     {
@@ -39,14 +34,14 @@
       "sector": "Entertainment"
     },
     {
+      "ticker": "MNST",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
       "ticker": "PG",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
     },
     {
       "ticker": "TTWO",
@@ -57,12 +52,17 @@
       "ticker": "XYZ",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 4.97,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 81.08,
-  "spy_return_pct": 94.88,
-  "sharpe_annual": 0.6436,
-  "max_drawdown_pct": -39.3,
-  "win_rate_pct": 54.33,
-  "trading_days": 797
+  "cumulative_return_pct": 73.69,
+  "spy_return_pct": 89.85,
+  "sharpe_annual": 0.5932,
+  "max_drawdown_pct": -40.89,
+  "win_rate_pct": 54.26,
+  "trading_days": 798
 }
