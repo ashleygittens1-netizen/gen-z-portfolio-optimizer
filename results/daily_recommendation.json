@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-09 21:29 UTC",
-  "trade_date": "2026-06-08",
-  "window_start": "2026-03-12",
-  "window_end": "2026-06-05",
-  "expected_return": 0.2643,
-  "portfolio_risk": 0.00041205,
-  "sharpe": 0.1204,
-  "actual_return": 1.0297,
+  "last_updated": "2026-06-10 21:52 UTC",
+  "trade_date": "2026-06-09",
+  "window_start": "2026-03-13",
+  "window_end": "2026-06-08",
+  "expected_return": 0.3685,
+  "portfolio_risk": 0.00046861,
+  "sharpe": 0.161,
+  "actual_return": 0.5953,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -14,22 +14,22 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "MNST",
-      "weight": 19.99,
-      "sector": "Fitness_Wellness"
-    },
-    {
-      "ticker": "AMZN",
-      "weight": 5.01,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "BROS",
-      "weight": 5.0,
+      "weight": 20.0,
       "sector": "Food_Beverage"
     },
     {
+      "ticker": "AMZN",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "DECK",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "MNST",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
     },
@@ -54,15 +54,15 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "YUM",
+      "ticker": "SBUX",
       "weight": 4.99,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 75.48,
-  "spy_return_pct": 90.28,
-  "sharpe_annual": 0.6045,
+  "cumulative_return_pct": 76.53,
+  "spy_return_pct": 89.73,
+  "sharpe_annual": 0.6108,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.32,
-  "trading_days": 799
+  "win_rate_pct": 54.37,
+  "trading_days": 800
 }
