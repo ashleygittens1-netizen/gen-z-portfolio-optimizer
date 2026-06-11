@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-10 21:52 UTC",
-  "trade_date": "2026-06-09",
-  "window_start": "2026-03-13",
-  "window_end": "2026-06-08",
-  "expected_return": 0.3685,
-  "portfolio_risk": 0.00046861,
-  "sharpe": 0.161,
-  "actual_return": 0.5953,
+  "last_updated": "2026-06-11 21:56 UTC",
+  "trade_date": "2026-06-10",
+  "window_start": "2026-03-16",
+  "window_end": "2026-06-09",
+  "expected_return": 0.3779,
+  "portfolio_risk": 0.00046848,
+  "sharpe": 0.1654,
+  "actual_return": -0.6848,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -39,9 +39,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "SPOT",
+      "ticker": "SBUX",
       "weight": 5.0,
-      "sector": "Entertainment"
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "TTWO",
@@ -54,15 +54,15 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "SBUX",
+      "ticker": "SPOT",
       "weight": 4.99,
-      "sector": "Food_Beverage"
+      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 76.53,
-  "spy_return_pct": 89.73,
-  "sharpe_annual": 0.6108,
+  "cumulative_return_pct": 75.32,
+  "spy_return_pct": 86.73,
+  "sharpe_annual": 0.6021,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.37,
-  "trading_days": 800
+  "win_rate_pct": 54.31,
+  "trading_days": 801
 }
