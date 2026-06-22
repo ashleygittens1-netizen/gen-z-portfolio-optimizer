@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-19 21:01 UTC",
+  "last_updated": "2026-06-22 21:56 UTC",
   "trade_date": "2026-06-18",
   "window_start": "2026-03-24",
   "window_end": "2026-06-17",
-  "expected_return": 0.4522,
-  "portfolio_risk": 0.00050764,
-  "sharpe": 0.1919,
-  "actual_return": 4.19,
+  "expected_return": 0.4732,
+  "portfolio_risk": 0.00047833,
+  "sharpe": 0.2073,
+  "actual_return": 3.9617,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -24,24 +24,19 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "CMG",
+      "ticker": "DECK",
       "weight": 5.0,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "COTY",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "META",
-      "weight": 5.0,
-      "sector": "Entertainment"
+      "sector": "Fitness_Wellness"
     },
     {
       "ticker": "MNST",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SBUX",
@@ -57,12 +52,17 @@
       "ticker": "XYZ",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "YUM",
+      "weight": 4.99,
+      "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 86.94,
+  "cumulative_return_pct": 95.2,
   "spy_return_pct": 92.71,
-  "sharpe_annual": 0.6108,
-  "max_drawdown_pct": -39.04,
+  "sharpe_annual": 0.7166,
+  "max_drawdown_pct": -40.89,
   "win_rate_pct": 54.52,
   "trading_days": 807
 }
