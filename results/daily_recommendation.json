@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-06-25 21:22 UTC",
-  "trade_date": "2026-06-24",
-  "window_start": "2026-03-27",
-  "window_end": "2026-06-23",
-  "expected_return": 0.5859,
-  "portfolio_risk": 0.00050564,
-  "sharpe": 0.2517,
-  "actual_return": 3.5265,
+  "last_updated": "2026-06-26 21:14 UTC",
+  "trade_date": "2026-06-25",
+  "window_start": "2026-03-30",
+  "window_end": "2026-06-24",
+  "expected_return": 0.6924,
+  "portfolio_risk": 0.00052563,
+  "sharpe": 0.2934,
+  "actual_return": -0.9737,
   "allocations": [
     {
       "ticker": "AFRM",
@@ -29,14 +29,14 @@
       "sector": "Fitness_Wellness"
     },
     {
+      "ticker": "ELF",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "MNST",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
-    },
-    {
-      "ticker": "PG",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SBUX",
@@ -55,14 +55,14 @@
     },
     {
       "ticker": "META",
-      "weight": 4.99,
+      "weight": 4.97,
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 96.45,
-  "spy_return_pct": 89.23,
-  "sharpe_annual": 0.72,
+  "cumulative_return_pct": 94.54,
+  "spy_return_pct": 89.5,
+  "sharpe_annual": 0.7082,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.57,
-  "trading_days": 810
+  "win_rate_pct": 54.5,
+  "trading_days": 811
 }
