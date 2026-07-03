@@ -1,36 +1,36 @@
 {
-  "last_updated": "2026-07-02 20:50 UTC",
-  "trade_date": "2026-07-01",
-  "window_start": "2026-04-06",
-  "window_end": "2026-06-30",
-  "expected_return": 0.2904,
-  "portfolio_risk": 8.431e-05,
-  "sharpe": 0.2947,
-  "actual_return": 0.9721,
+  "last_updated": "2026-07-03 20:51 UTC",
+  "trade_date": "2026-07-02",
+  "window_start": "2026-04-07",
+  "window_end": "2026-07-01",
+  "expected_return": 0.2852,
+  "portfolio_risk": 8.34e-05,
+  "sharpe": 0.2905,
+  "actual_return": 1.5446,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 23.77,
+      "weight": 23.57,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 22.59,
+      "weight": 22.72,
       "sector": "Entertainment"
     },
     {
       "ticker": "YUM",
-      "weight": 13.6,
+      "weight": 13.71,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "PG",
-      "weight": 7.98,
+      "weight": 8.26,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SBUX",
-      "weight": 7.06,
+      "weight": 6.74,
       "sector": "Food_Beverage"
     },
     {
@@ -50,29 +50,29 @@
     },
     {
       "ticker": "AFRM",
-      "weight": 4.63,
+      "weight": 4.44,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "SPOT",
-      "weight": 3.13,
+      "weight": 3.24,
       "sector": "Entertainment"
     },
     {
       "ticker": "ULTA",
-      "weight": 1.79,
+      "weight": 2.0,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "BROS",
-      "weight": 0.44,
+      "weight": 0.32,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 105.89,
-  "spy_return_pct": 92.46,
-  "sharpe_annual": 0.7679,
+  "cumulative_return_pct": 109.07,
+  "spy_return_pct": 92.21,
+  "sharpe_annual": 0.7842,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.6,
-  "trading_days": 815
+  "win_rate_pct": 54.66,
+  "trading_days": 816
 }
