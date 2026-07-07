@@ -1,45 +1,45 @@
 {
-  "last_updated": "2026-07-06 21:20 UTC",
-  "trade_date": "2026-07-02",
-  "window_start": "2026-04-07",
-  "window_end": "2026-07-01",
-  "expected_return": 0.2796,
-  "portfolio_risk": 8.263e-05,
-  "sharpe": 0.2857,
-  "actual_return": 1.5546,
+  "last_updated": "2026-07-07 21:16 UTC",
+  "trade_date": "2026-07-06",
+  "window_start": "2026-04-08",
+  "window_end": "2026-07-02",
+  "expected_return": 0.3796,
+  "portfolio_risk": 9.685e-05,
+  "sharpe": 0.3656,
+  "actual_return": 0.051,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 23.26,
+      "weight": 29.21,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 22.77,
+      "weight": 21.94,
       "sector": "Entertainment"
     },
     {
       "ticker": "YUM",
-      "weight": 13.67,
+      "weight": 11.7,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "PG",
-      "weight": 8.46,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 6.84,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "AMZN",
-      "weight": 5.0,
+      "ticker": "AFRM",
+      "weight": 7.14,
       "sector": "Commerce_Fintech"
     },
     {
+      "ticker": "PG",
+      "weight": 5.01,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "MCD",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "SBUX",
       "weight": 5.0,
       "sector": "Food_Beverage"
     },
@@ -49,30 +49,30 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AFRM",
-      "weight": 4.19,
+      "ticker": "AMZN",
+      "weight": 4.81,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "SPOT",
-      "weight": 3.24,
+      "weight": 3.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "ULTA",
-      "weight": 2.34,
-      "sector": "Skincare_Beauty"
+      "ticker": "BROS",
+      "weight": 1.9,
+      "sector": "Food_Beverage"
     },
     {
-      "ticker": "BROS",
-      "weight": 0.21,
-      "sector": "Food_Beverage"
+      "ticker": "COTY",
+      "weight": 0.19,
+      "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 109.02,
-  "spy_return_pct": 92.21,
-  "sharpe_annual": 0.7839,
-  "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.66,
-  "trading_days": 816
+  "cumulative_return_pct": 109.57,
+  "spy_return_pct": 93.89,
+  "sharpe_annual": 0.7864,
+  "max_drawdown_pct": -40.77,
+  "win_rate_pct": 54.71,
+  "trading_days": 817
 }
