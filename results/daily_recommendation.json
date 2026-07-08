@@ -1,42 +1,47 @@
 {
-  "last_updated": "2026-07-07 21:16 UTC",
-  "trade_date": "2026-07-06",
-  "window_start": "2026-04-08",
-  "window_end": "2026-07-02",
-  "expected_return": 0.3796,
-  "portfolio_risk": 9.685e-05,
-  "sharpe": 0.3656,
-  "actual_return": 0.051,
+  "last_updated": "2026-07-08 20:53 UTC",
+  "trade_date": "2026-07-07",
+  "window_start": "2026-04-09",
+  "window_end": "2026-07-06",
+  "expected_return": 0.3653,
+  "portfolio_risk": 9.634e-05,
+  "sharpe": 0.3519,
+  "actual_return": -0.0042,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 29.21,
+      "weight": 31.49,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 21.94,
+      "weight": 21.97,
       "sector": "Entertainment"
     },
     {
-      "ticker": "YUM",
-      "weight": 11.7,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "AFRM",
-      "weight": 7.14,
+      "weight": 9.99,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "PG",
-      "weight": 5.01,
-      "sector": "Skincare_Beauty"
+      "ticker": "YUM",
+      "weight": 6.55,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "AMZN",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "MCD",
       "weight": 5.0,
       "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SBUX",
@@ -49,30 +54,30 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AMZN",
-      "weight": 4.81,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "SPOT",
-      "weight": 3.0,
+      "weight": 2.26,
       "sector": "Entertainment"
     },
     {
       "ticker": "BROS",
-      "weight": 1.9,
+      "weight": 1.52,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "COTY",
-      "weight": 0.19,
+      "ticker": "DECK",
+      "weight": 1.1,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "ELF",
+      "weight": 0.11,
       "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 109.57,
-  "spy_return_pct": 93.89,
-  "sharpe_annual": 0.7864,
+  "cumulative_return_pct": 109.56,
+  "spy_return_pct": 92.97,
+  "sharpe_annual": 0.7856,
   "max_drawdown_pct": -40.77,
-  "win_rate_pct": 54.71,
-  "trading_days": 817
+  "win_rate_pct": 54.65,
+  "trading_days": 818
 }
