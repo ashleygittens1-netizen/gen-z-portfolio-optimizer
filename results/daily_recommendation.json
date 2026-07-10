@@ -1,31 +1,36 @@
 {
-  "last_updated": "2026-07-09 21:12 UTC",
-  "trade_date": "2026-07-08",
-  "window_start": "2026-04-10",
-  "window_end": "2026-07-07",
-  "expected_return": 0.3613,
-  "portfolio_risk": 9.654e-05,
-  "sharpe": 0.3475,
-  "actual_return": -1.95,
+  "last_updated": "2026-07-10 21:00 UTC",
+  "trade_date": "2026-07-09",
+  "window_start": "2026-04-13",
+  "window_end": "2026-07-08",
+  "expected_return": 0.3228,
+  "portfolio_risk": 9.754e-05,
+  "sharpe": 0.3067,
+  "actual_return": 0.1363,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 30.66,
+      "weight": 29.91,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 23.42,
+      "weight": 22.67,
       "sector": "Entertainment"
     },
     {
       "ticker": "AFRM",
-      "weight": 9.66,
+      "weight": 8.64,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "YUM",
-      "weight": 6.25,
+      "weight": 6.94,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 6.84,
       "sector": "Food_Beverage"
     },
     {
@@ -39,55 +44,35 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "SBUX",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "UL",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SPOT",
-      "weight": 3.7,
+      "weight": 4.46,
       "sector": "Entertainment"
     },
     {
-      "ticker": "AMZN",
-      "weight": 2.9,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "BROS",
-      "weight": 1.57,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "COTY",
-      "weight": 0.64,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "DECK",
-      "weight": 0.56,
+      "ticker": "NKE",
+      "weight": 4.16,
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "ELF",
-      "weight": 0.42,
-      "sector": "Skincare_Beauty"
+      "ticker": "BROS",
+      "weight": 0.75,
+      "sector": "Food_Beverage"
     },
     {
-      "ticker": "META",
-      "weight": 0.2,
-      "sector": "Entertainment"
+      "ticker": "AMZN",
+      "weight": 0.6,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 105.47,
-  "spy_return_pct": 92.37,
-  "sharpe_annual": 0.7624,
+  "cumulative_return_pct": 105.75,
+  "spy_return_pct": 94.0,
+  "sharpe_annual": 0.7632,
   "max_drawdown_pct": -40.77,
-  "win_rate_pct": 54.58,
-  "trading_days": 819
+  "win_rate_pct": 54.63,
+  "trading_days": 820
 }
