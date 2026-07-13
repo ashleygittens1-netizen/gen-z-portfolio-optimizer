@@ -1,36 +1,36 @@
 {
-  "last_updated": "2026-07-10 21:00 UTC",
-  "trade_date": "2026-07-09",
-  "window_start": "2026-04-13",
-  "window_end": "2026-07-08",
-  "expected_return": 0.3228,
-  "portfolio_risk": 9.754e-05,
-  "sharpe": 0.3067,
-  "actual_return": 0.1363,
+  "last_updated": "2026-07-13 20:49 UTC",
+  "trade_date": "2026-07-10",
+  "window_start": "2026-04-14",
+  "window_end": "2026-07-09",
+  "expected_return": 0.3127,
+  "portfolio_risk": 9.768e-05,
+  "sharpe": 0.2963,
+  "actual_return": 0.2364,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 29.91,
+      "weight": 30.6,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 22.67,
+      "weight": 21.06,
       "sector": "Entertainment"
     },
     {
+      "ticker": "SBUX",
+      "weight": 9.45,
+      "sector": "Food_Beverage"
+    },
+    {
       "ticker": "AFRM",
-      "weight": 8.64,
+      "weight": 8.77,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "YUM",
-      "weight": 6.94,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 6.84,
+      "weight": 5.11,
       "sector": "Food_Beverage"
     },
     {
@@ -50,29 +50,34 @@
     },
     {
       "ticker": "SPOT",
-      "weight": 4.46,
+      "weight": 3.67,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "META",
+      "weight": 2.26,
       "sector": "Entertainment"
     },
     {
       "ticker": "NKE",
-      "weight": 4.16,
+      "weight": 2.19,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "BROS",
-      "weight": 0.75,
+      "weight": 1.73,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "AMZN",
-      "weight": 0.6,
-      "sector": "Commerce_Fintech"
+      "ticker": "DECK",
+      "weight": 0.14,
+      "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 105.75,
-  "spy_return_pct": 94.0,
-  "sharpe_annual": 0.7632,
-  "max_drawdown_pct": -40.77,
-  "win_rate_pct": 54.63,
-  "trading_days": 820
+  "cumulative_return_pct": 105.8,
+  "spy_return_pct": 94.83,
+  "sharpe_annual": 0.7626,
+  "max_drawdown_pct": -40.89,
+  "win_rate_pct": 54.69,
+  "trading_days": 821
 }
