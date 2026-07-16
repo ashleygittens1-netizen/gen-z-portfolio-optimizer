@@ -1,32 +1,37 @@
 {
-  "last_updated": "2026-07-15 20:49 UTC",
-  "trade_date": "2026-07-14",
-  "window_start": "2026-04-16",
-  "window_end": "2026-07-13",
-  "expected_return": 0.2756,
-  "portfolio_risk": 9.701e-05,
-  "sharpe": 0.2597,
-  "actual_return": -0.553,
+  "last_updated": "2026-07-16 20:41 UTC",
+  "trade_date": "2026-07-15",
+  "window_start": "2026-04-17",
+  "window_end": "2026-07-14",
+  "expected_return": 0.267,
+  "portfolio_risk": 9.798e-05,
+  "sharpe": 0.2497,
+  "actual_return": -0.188,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 32.33,
+      "weight": 33.22,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 20.93,
+      "weight": 18.56,
       "sector": "Entertainment"
     },
     {
+      "ticker": "AFRM",
+      "weight": 9.7,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "SBUX",
-      "weight": 8.58,
+      "weight": 8.45,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "AFRM",
-      "weight": 8.16,
-      "sector": "Commerce_Fintech"
+      "ticker": "UL",
+      "weight": 5.07,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "MCD",
@@ -39,45 +44,40 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "UL",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
       "ticker": "YUM",
       "weight": 5.0,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "BROS",
-      "weight": 2.86,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "META",
-      "weight": 2.4,
+      "weight": 2.78,
       "sector": "Entertainment"
     },
     {
-      "ticker": "DECK",
-      "weight": 1.89,
-      "sector": "Fitness_Wellness"
-    },
-    {
       "ticker": "CMG",
-      "weight": 1.45,
+      "weight": 2.77,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "SPOT",
-      "weight": 1.39,
+      "weight": 2.21,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "BROS",
+      "weight": 1.13,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "DECK",
+      "weight": 1.1,
+      "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 104.01,
-  "spy_return_pct": 94.03,
-  "sharpe_annual": 0.7514,
+  "cumulative_return_pct": 103.63,
+  "spy_return_pct": 94.8,
+  "sharpe_annual": 0.7486,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.56,
-  "trading_days": 823
+  "win_rate_pct": 54.49,
+  "trading_days": 824
 }
