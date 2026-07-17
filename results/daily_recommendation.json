@@ -1,41 +1,36 @@
 {
-  "last_updated": "2026-07-16 20:41 UTC",
-  "trade_date": "2026-07-15",
-  "window_start": "2026-04-17",
-  "window_end": "2026-07-14",
-  "expected_return": 0.267,
-  "portfolio_risk": 9.798e-05,
-  "sharpe": 0.2497,
-  "actual_return": -0.188,
+  "last_updated": "2026-07-17 20:42 UTC",
+  "trade_date": "2026-07-16",
+  "window_start": "2026-04-20",
+  "window_end": "2026-07-15",
+  "expected_return": 0.2477,
+  "portfolio_risk": 9.7e-05,
+  "sharpe": 0.2313,
+  "actual_return": 0.8796,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 33.22,
+      "weight": 33.6,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 18.56,
+      "weight": 19.73,
       "sector": "Entertainment"
     },
     {
       "ticker": "AFRM",
-      "weight": 9.7,
+      "weight": 7.88,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "SBUX",
-      "weight": 8.45,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "UL",
-      "weight": 5.07,
+      "weight": 7.25,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "MCD",
-      "weight": 5.0,
+      "ticker": "SBUX",
+      "weight": 6.53,
       "sector": "Food_Beverage"
     },
     {
@@ -49,35 +44,40 @@
       "sector": "Food_Beverage"
     },
     {
+      "ticker": "PYPL",
+      "weight": 4.42,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "META",
-      "weight": 2.78,
+      "weight": 3.21,
       "sector": "Entertainment"
     },
     {
-      "ticker": "CMG",
-      "weight": 2.77,
+      "ticker": "MCD",
+      "weight": 2.75,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "BROS",
+      "weight": 2.07,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "SPOT",
-      "weight": 2.21,
+      "weight": 1.87,
       "sector": "Entertainment"
     },
     {
-      "ticker": "BROS",
-      "weight": 1.13,
-      "sector": "Food_Beverage"
-    },
-    {
       "ticker": "DECK",
-      "weight": 1.1,
+      "weight": 0.67,
       "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 103.63,
-  "spy_return_pct": 94.8,
-  "sharpe_annual": 0.7486,
+  "cumulative_return_pct": 105.42,
+  "spy_return_pct": 93.74,
+  "sharpe_annual": 0.7577,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.49,
-  "trading_days": 824
+  "win_rate_pct": 54.55,
+  "trading_days": 825
 }
