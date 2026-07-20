@@ -1,37 +1,37 @@
 {
-  "last_updated": "2026-07-17 20:42 UTC",
-  "trade_date": "2026-07-16",
-  "window_start": "2026-04-20",
-  "window_end": "2026-07-15",
-  "expected_return": 0.2477,
-  "portfolio_risk": 9.7e-05,
-  "sharpe": 0.2313,
-  "actual_return": 0.8796,
+  "last_updated": "2026-07-20 20:59 UTC",
+  "trade_date": "2026-07-17",
+  "window_start": "2026-04-21",
+  "window_end": "2026-07-16",
+  "expected_return": 0.2658,
+  "portfolio_risk": 0.00010395,
+  "sharpe": 0.2412,
+  "actual_return": -1.8705,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 33.6,
+      "weight": 35.84,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 19.73,
+      "weight": 17.65,
       "sector": "Entertainment"
     },
     {
+      "ticker": "SBUX",
+      "weight": 7.61,
+      "sector": "Food_Beverage"
+    },
+    {
       "ticker": "AFRM",
-      "weight": 7.88,
+      "weight": 7.23,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "UL",
-      "weight": 7.25,
+      "weight": 6.67,
       "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 6.53,
-      "sector": "Food_Beverage"
     },
     {
       "ticker": "PG",
@@ -39,45 +39,45 @@
       "sector": "Skincare_Beauty"
     },
     {
+      "ticker": "PYPL",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "YUM",
       "weight": 5.0,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "PYPL",
-      "weight": 4.42,
-      "sector": "Commerce_Fintech"
+      "ticker": "BROS",
+      "weight": 3.41,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "META",
-      "weight": 3.21,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "MCD",
-      "weight": 2.75,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "BROS",
-      "weight": 2.07,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "SPOT",
-      "weight": 1.87,
+      "weight": 3.06,
       "sector": "Entertainment"
     },
     {
       "ticker": "DECK",
-      "weight": 0.67,
+      "weight": 1.73,
       "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "MCD",
+      "weight": 1.64,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "SPOT",
+      "weight": 0.16,
+      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 105.42,
-  "spy_return_pct": 93.74,
-  "sharpe_annual": 0.7577,
+  "cumulative_return_pct": 101.57,
+  "spy_return_pct": 91.82,
+  "sharpe_annual": 0.7355,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.55,
-  "trading_days": 825
+  "win_rate_pct": 54.48,
+  "trading_days": 826
 }
