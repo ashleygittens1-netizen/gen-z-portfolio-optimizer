@@ -1,42 +1,37 @@
 {
-  "last_updated": "2026-07-21 20:55 UTC",
-  "trade_date": "2026-07-20",
-  "window_start": "2026-04-22",
-  "window_end": "2026-07-17",
-  "expected_return": 0.2607,
-  "portfolio_risk": 0.00010125,
-  "sharpe": 0.2394,
-  "actual_return": -0.7939,
+  "last_updated": "2026-07-22 20:54 UTC",
+  "trade_date": "2026-07-21",
+  "window_start": "2026-04-23",
+  "window_end": "2026-07-20",
+  "expected_return": 0.234,
+  "portfolio_risk": 0.00010145,
+  "sharpe": 0.2126,
+  "actual_return": -0.9356,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 32.6,
+      "weight": 31.85,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 15.41,
+      "weight": 18.3,
       "sector": "Entertainment"
     },
     {
       "ticker": "UL",
-      "weight": 15.21,
+      "weight": 12.55,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AFRM",
-      "weight": 6.75,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "SBUX",
-      "weight": 5.01,
+      "weight": 6.2,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "BROS",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
+      "ticker": "AFRM",
+      "weight": 6.1,
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "PG",
@@ -44,40 +39,50 @@
       "sector": "Skincare_Beauty"
     },
     {
+      "ticker": "SPOT",
+      "weight": 4.83,
+      "sector": "Entertainment"
+    },
+    {
       "ticker": "PYPL",
-      "weight": 5.0,
+      "weight": 4.72,
       "sector": "Commerce_Fintech"
     },
     {
+      "ticker": "COTY",
+      "weight": 3.5,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "YUM",
-      "weight": 3.56,
+      "weight": 2.75,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "SPOT",
-      "weight": 3.27,
-      "sector": "Entertainment"
+      "ticker": "BROS",
+      "weight": 2.1,
+      "sector": "Food_Beverage"
     },
     {
-      "ticker": "META",
-      "weight": 1.49,
-      "sector": "Entertainment"
+      "ticker": "ELF",
+      "weight": 1.11,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "MCD",
-      "weight": 1.32,
+      "weight": 0.77,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "COTY",
-      "weight": 0.36,
-      "sector": "Skincare_Beauty"
+      "ticker": "META",
+      "weight": 0.22,
+      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 91.96,
-  "spy_return_pct": 91.51,
-  "sharpe_annual": 0.6821,
-  "max_drawdown_pct": -43.86,
-  "win_rate_pct": 54.05,
-  "trading_days": 827
+  "cumulative_return_pct": 98.1,
+  "spy_return_pct": 93.11,
+  "sharpe_annual": 0.7147,
+  "max_drawdown_pct": -40.89,
+  "win_rate_pct": 54.35,
+  "trading_days": 828
 }
