@@ -1,83 +1,78 @@
 {
-  "last_updated": "2026-07-30 20:54 UTC",
-  "trade_date": "2026-07-29",
-  "window_start": "2026-05-01",
-  "window_end": "2026-07-28",
-  "expected_return": 0.227,
-  "portfolio_risk": 9.788e-05,
-  "sharpe": 0.2094,
-  "actual_return": -0.0261,
+  "last_updated": "2026-07-31 20:52 UTC",
+  "trade_date": "2026-07-30",
+  "window_start": "2026-05-04",
+  "window_end": "2026-07-29",
+  "expected_return": 0.2281,
+  "portfolio_risk": 9.847e-05,
+  "sharpe": 0.2099,
+  "actual_return": 0.3345,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 27.74,
+      "weight": 28.72,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "TTWO",
-      "weight": 17.82,
+      "weight": 17.98,
       "sector": "Entertainment"
     },
     {
       "ticker": "SPOT",
-      "weight": 12.73,
+      "weight": 13.62,
       "sector": "Entertainment"
     },
     {
       "ticker": "SBUX",
-      "weight": 11.71,
+      "weight": 8.22,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "UL",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
       "ticker": "YUM",
-      "weight": 5.0,
+      "weight": 6.47,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "MCD",
-      "weight": 4.96,
+      "weight": 5.0,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "PYPL",
-      "weight": 4.1,
+      "weight": 4.87,
       "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "AFRM",
-      "weight": 3.88,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "PG",
-      "weight": 2.84,
-      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "BROS",
-      "weight": 2.19,
+      "weight": 4.22,
       "sector": "Food_Beverage"
     },
     {
+      "ticker": "ULTA",
+      "weight": 4.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "UL",
+      "weight": 3.46,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "META",
-      "weight": 1.41,
+      "weight": 2.4,
       "sector": "Entertainment"
     },
     {
-      "ticker": "ULTA",
-      "weight": 0.63,
-      "sector": "Skincare_Beauty"
+      "ticker": "AFRM",
+      "weight": 1.01,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 104.94,
-  "spy_return_pct": 88.26,
-  "sharpe_annual": 0.7469,
+  "cumulative_return_pct": 105.63,
+  "spy_return_pct": 91.41,
+  "sharpe_annual": 0.7499,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.32,
-  "trading_days": 834
+  "win_rate_pct": 54.37,
+  "trading_days": 835
 }
