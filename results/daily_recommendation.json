@@ -1,78 +1,83 @@
 {
-  "last_updated": "2026-07-31 20:52 UTC",
-  "trade_date": "2026-07-30",
-  "window_start": "2026-05-04",
-  "window_end": "2026-07-29",
-  "expected_return": 0.2281,
-  "portfolio_risk": 9.847e-05,
-  "sharpe": 0.2099,
-  "actual_return": 0.3345,
+  "last_updated": "2026-08-03 20:52 UTC",
+  "trade_date": "2026-07-31",
+  "window_start": "2026-05-05",
+  "window_end": "2026-07-30",
+  "expected_return": 0.261,
+  "portfolio_risk": 9.934e-05,
+  "sharpe": 0.242,
+  "actual_return": -1.773,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 28.72,
+      "weight": 31.56,
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "TTWO",
-      "weight": 17.98,
-      "sector": "Entertainment"
+      "ticker": "YUM",
+      "weight": 12.64,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "SPOT",
-      "weight": 13.62,
+      "weight": 12.61,
       "sector": "Entertainment"
     },
     {
+      "ticker": "TTWO",
+      "weight": 12.43,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 5.76,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "SBUX",
-      "weight": 8.22,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "YUM",
-      "weight": 6.47,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "MCD",
       "weight": 5.0,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "PYPL",
-      "weight": 4.87,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "BROS",
-      "weight": 4.22,
+      "ticker": "MCD",
+      "weight": 4.2,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "ULTA",
-      "weight": 4.0,
+      "weight": 3.89,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "UL",
-      "weight": 3.46,
-      "sector": "Skincare_Beauty"
+      "ticker": "CMG",
+      "weight": 3.82,
+      "sector": "Food_Beverage"
     },
     {
-      "ticker": "META",
-      "weight": 2.4,
-      "sector": "Entertainment"
+      "ticker": "BROS",
+      "weight": 3.08,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "AFRM",
-      "weight": 1.01,
+      "weight": 2.66,
       "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "UL",
+      "weight": 1.79,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "PG",
+      "weight": 0.55,
+      "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 105.63,
-  "spy_return_pct": 91.41,
-  "sharpe_annual": 0.7499,
+  "cumulative_return_pct": 101.98,
+  "spy_return_pct": 92.79,
+  "sharpe_annual": 0.7291,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.37,
-  "trading_days": 835
+  "win_rate_pct": 54.31,
+  "trading_days": 836
 }
