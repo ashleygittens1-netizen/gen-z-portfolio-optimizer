@@ -1,83 +1,88 @@
 {
-  "last_updated": "2026-08-03 20:52 UTC",
-  "trade_date": "2026-07-31",
-  "window_start": "2026-05-05",
-  "window_end": "2026-07-30",
-  "expected_return": 0.261,
-  "portfolio_risk": 9.934e-05,
-  "sharpe": 0.242,
-  "actual_return": -1.773,
+  "last_updated": "2026-08-04 21:02 UTC",
+  "trade_date": "2026-08-03",
+  "window_start": "2026-05-06",
+  "window_end": "2026-07-31",
+  "expected_return": 0.2445,
+  "portfolio_risk": 9.986e-05,
+  "sharpe": 0.2248,
+  "actual_return": -1.2948,
   "allocations": [
     {
       "ticker": "MNST",
-      "weight": 31.56,
+      "weight": 29.54,
       "sector": "Fitness_Wellness"
     },
     {
       "ticker": "YUM",
-      "weight": 12.64,
+      "weight": 13.51,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "SPOT",
-      "weight": 12.61,
+      "weight": 11.77,
       "sector": "Entertainment"
     },
     {
       "ticker": "TTWO",
-      "weight": 12.43,
+      "weight": 9.93,
       "sector": "Entertainment"
     },
     {
       "ticker": "PYPL",
-      "weight": 5.76,
+      "weight": 9.81,
       "sector": "Commerce_Fintech"
     },
     {
       "ticker": "SBUX",
-      "weight": 5.0,
+      "weight": 5.43,
       "sector": "Food_Beverage"
     },
     {
       "ticker": "MCD",
-      "weight": 4.2,
+      "weight": 5.0,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "ULTA",
-      "weight": 3.89,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "CMG",
-      "weight": 3.82,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "BROS",
-      "weight": 3.08,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "AFRM",
-      "weight": 2.66,
+      "ticker": "AMZN",
+      "weight": 4.51,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "UL",
-      "weight": 1.79,
+      "ticker": "BROS",
+      "weight": 3.37,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "ELF",
+      "weight": 1.78,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "PG",
-      "weight": 0.55,
+      "weight": 1.67,
       "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "ULTA",
+      "weight": 1.55,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "CMG",
+      "weight": 1.37,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "AFRM",
+      "weight": 0.75,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 101.98,
-  "spy_return_pct": 92.79,
-  "sharpe_annual": 0.7291,
+  "cumulative_return_pct": 99.37,
+  "spy_return_pct": 95.54,
+  "sharpe_annual": 0.7139,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.31,
-  "trading_days": 836
+  "win_rate_pct": 54.24,
+  "trading_days": 837
 }
