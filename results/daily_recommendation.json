@@ -1,83 +1,68 @@
 {
-  "last_updated": "2026-08-05 20:52 UTC",
-  "trade_date": "2026-08-04",
-  "window_start": "2026-05-07",
-  "window_end": "2026-08-03",
-  "expected_return": 0.2118,
-  "portfolio_risk": 0.00010134,
-  "sharpe": 0.1907,
-  "actual_return": -0.4703,
+  "last_updated": "2026-08-07 00:53 UTC",
+  "trade_date": "2026-08-06",
+  "window_start": "2026-05-11",
+  "window_end": "2026-08-05",
+  "expected_return": 0.4574,
+  "portfolio_risk": 0.0004507,
+  "sharpe": 0.2061,
+  "actual_return": 1.5636,
   "allocations": [
     {
-      "ticker": "MNST",
-      "weight": 29.08,
-      "sector": "Fitness_Wellness"
-    },
-    {
-      "ticker": "TTWO",
-      "weight": 13.24,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "PYPL",
-      "weight": 10.56,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "SPOT",
-      "weight": 10.47,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "YUM",
-      "weight": 8.04,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "AMZN",
-      "weight": 5.72,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "ULTA",
-      "weight": 5.46,
+      "ticker": "ELF",
+      "weight": 40.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "MCD",
-      "weight": 4.8,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "CMG",
-      "weight": 4.1,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 3.35,
-      "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "AFRM",
-      "weight": 2.0,
+      "ticker": "PYPL",
+      "weight": 20.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "META",
-      "weight": 1.79,
-      "sector": "Entertainment"
+      "ticker": "AFRM",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "BROS",
-      "weight": 1.36,
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "COTY",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "MNST",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "SPOT",
+      "weight": 5.0,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "UL",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "XYZ",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "CMG",
+      "weight": 4.99,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 98.43,
-  "spy_return_pct": 99.06,
-  "sharpe_annual": 0.7081,
+  "cumulative_return_pct": 99.67,
+  "spy_return_pct": 98.35,
+  "sharpe_annual": 0.7134,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.18,
-  "trading_days": 838
+  "win_rate_pct": 54.17,
+  "trading_days": 840
 }
