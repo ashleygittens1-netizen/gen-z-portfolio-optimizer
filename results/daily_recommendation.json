@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-07 20:28 UTC",
-  "trade_date": "2026-08-06",
-  "window_start": "2026-05-11",
-  "window_end": "2026-08-05",
-  "expected_return": 0.4574,
-  "portfolio_risk": 0.0004507,
-  "sharpe": 0.2061,
-  "actual_return": 1.5636,
+  "last_updated": "2026-08-10 20:30 UTC",
+  "trade_date": "2026-08-07",
+  "window_start": "2026-05-12",
+  "window_end": "2026-08-06",
+  "expected_return": 0.5514,
+  "portfolio_risk": 0.00042723,
+  "sharpe": 0.2572,
+  "actual_return": 2.4732,
   "allocations": [
     {
       "ticker": "ELF",
@@ -34,7 +34,7 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "MNST",
+      "ticker": "DECK",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
     },
@@ -59,10 +59,10 @@
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 99.67,
-  "spy_return_pct": 98.35,
-  "sharpe_annual": 0.7134,
-  "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.17,
-  "trading_days": 840
+  "cumulative_return_pct": 109.38,
+  "spy_return_pct": 99.56,
+  "sharpe_annual": 0.7506,
+  "max_drawdown_pct": -46.26,
+  "win_rate_pct": 53.63,
+  "trading_days": 841
 }
