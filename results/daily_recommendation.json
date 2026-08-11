@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-10 20:30 UTC",
-  "trade_date": "2026-08-07",
-  "window_start": "2026-05-12",
-  "window_end": "2026-08-06",
-  "expected_return": 0.5514,
-  "portfolio_risk": 0.00042723,
-  "sharpe": 0.2572,
-  "actual_return": 2.4732,
+  "last_updated": "2026-08-11 20:32 UTC",
+  "trade_date": "2026-08-10",
+  "window_start": "2026-05-13",
+  "window_end": "2026-08-07",
+  "expected_return": 0.5937,
+  "portfolio_risk": 0.00041903,
+  "sharpe": 0.2803,
+  "actual_return": -1.2631,
   "allocations": [
     {
       "ticker": "ELF",
@@ -34,17 +34,12 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "DECK",
-      "weight": 5.0,
-      "sector": "Fitness_Wellness"
-    },
-    {
       "ticker": "SPOT",
       "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "UL",
+      "ticker": "ULTA",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
@@ -54,15 +49,20 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "CMG",
+      "ticker": "MNST",
       "weight": 4.99,
-      "sector": "Food_Beverage"
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "UL",
+      "weight": 4.99,
+      "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 109.38,
-  "spy_return_pct": 99.56,
-  "sharpe_annual": 0.7506,
-  "max_drawdown_pct": -46.26,
-  "win_rate_pct": 53.63,
-  "trading_days": 841
+  "cumulative_return_pct": 101.67,
+  "spy_return_pct": 99.5,
+  "sharpe_annual": 0.7224,
+  "max_drawdown_pct": -40.89,
+  "win_rate_pct": 54.16,
+  "trading_days": 842
 }
