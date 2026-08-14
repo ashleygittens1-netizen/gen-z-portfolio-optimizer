@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-13 20:27 UTC",
-  "trade_date": "2026-08-12",
-  "window_start": "2026-05-15",
-  "window_end": "2026-08-11",
-  "expected_return": 0.5726,
-  "portfolio_risk": 0.00049755,
-  "sharpe": 0.2478,
-  "actual_return": -2.1133,
+  "last_updated": "2026-08-14 20:19 UTC",
+  "trade_date": "2026-08-13",
+  "window_start": "2026-05-18",
+  "window_end": "2026-08-12",
+  "expected_return": 0.4734,
+  "portfolio_risk": 0.00039778,
+  "sharpe": 0.2274,
+  "actual_return": 0.325,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,14 +14,19 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "AFRM",
+      "ticker": "AMZN",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "CMG",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
     },
     {
       "ticker": "LULU",
@@ -29,40 +34,35 @@
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "MCD",
       "weight": 5.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "SPOT",
-      "weight": 5.0,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "UL",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "ULTA",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "CMG",
-      "weight": 4.99,
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "TTWO",
-      "weight": 4.98,
+      "ticker": "META",
+      "weight": 5.0,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "DECK",
+      "weight": 4.99,
+      "sector": "Fitness_Wellness"
     }
   ],
-  "cumulative_return_pct": 148.7,
-  "spy_return_pct": 99.36,
-  "sharpe_annual": 0.9278,
-  "max_drawdown_pct": -40.38,
-  "win_rate_pct": 54.03,
-  "trading_days": 844
+  "cumulative_return_pct": 35.95,
+  "spy_return_pct": 100.75,
+  "sharpe_annual": 0.2904,
+  "max_drawdown_pct": -38.79,
+  "win_rate_pct": 53.96,
+  "trading_days": 845
 }
