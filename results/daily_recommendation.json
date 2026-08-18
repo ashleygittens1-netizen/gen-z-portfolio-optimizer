@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-17 20:14 UTC",
-  "trade_date": "2026-08-14",
-  "window_start": "2026-05-19",
-  "window_end": "2026-08-13",
-  "expected_return": 0.5852,
-  "portfolio_risk": 0.00051573,
-  "sharpe": 0.2489,
-  "actual_return": 0.635,
+  "last_updated": "2026-08-18 20:14 UTC",
+  "trade_date": "2026-08-17",
+  "window_start": "2026-05-20",
+  "window_end": "2026-08-14",
+  "expected_return": 0.5657,
+  "portfolio_risk": 0.00039976,
+  "sharpe": 0.273,
+  "actual_return": 0.1047,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,9 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "AFRM",
@@ -29,12 +29,12 @@
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "CMG",
       "weight": 5.0,
-      "sector": "Commerce_Fintech"
+      "sector": "Food_Beverage"
     },
     {
-      "ticker": "SPOT",
+      "ticker": "TTWO",
       "weight": 5.0,
       "sector": "Entertainment"
     },
@@ -49,20 +49,20 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "XYZ",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
+      "ticker": "PG",
+      "weight": 4.99,
+      "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "SBUX",
-      "weight": 4.99,
-      "sector": "Food_Beverage"
+      "ticker": "AMZN",
+      "weight": 4.98,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 103.12,
-  "spy_return_pct": 100.35,
-  "sharpe_annual": 0.7144,
-  "max_drawdown_pct": -46.26,
-  "win_rate_pct": 53.55,
-  "trading_days": 846
+  "cumulative_return_pct": 133.55,
+  "spy_return_pct": 99.41,
+  "sharpe_annual": 0.8544,
+  "max_drawdown_pct": -45.37,
+  "win_rate_pct": 53.6,
+  "trading_days": 847
 }
