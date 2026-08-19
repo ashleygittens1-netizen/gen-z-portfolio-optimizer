@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-18 20:14 UTC",
-  "trade_date": "2026-08-17",
-  "window_start": "2026-05-20",
-  "window_end": "2026-08-14",
-  "expected_return": 0.5657,
-  "portfolio_risk": 0.00039976,
-  "sharpe": 0.273,
-  "actual_return": 0.1047,
+  "last_updated": "2026-08-19 20:07 UTC",
+  "trade_date": "2026-08-18",
+  "window_start": "2026-05-21",
+  "window_end": "2026-08-17",
+  "expected_return": 0.6082,
+  "portfolio_risk": 0.00049982,
+  "sharpe": 0.2632,
+  "actual_return": -0.4206,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,12 +14,12 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "COTY",
       "weight": 20.0,
-      "sector": "Commerce_Fintech"
+      "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AFRM",
+      "ticker": "AMZN",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
@@ -34,35 +34,35 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "TTWO",
+      "ticker": "META",
       "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "UL",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "ULTA",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
       "ticker": "PG",
-      "weight": 4.99,
+      "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AMZN",
-      "weight": 4.98,
+      "ticker": "PYPL",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
+      "ticker": "SBUX",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "XYZ",
+      "weight": 5.0,
       "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 133.55,
-  "spy_return_pct": 99.41,
-  "sharpe_annual": 0.8544,
-  "max_drawdown_pct": -45.37,
-  "win_rate_pct": 53.6,
-  "trading_days": 847
+  "cumulative_return_pct": 38.74,
+  "spy_return_pct": 98.06,
+  "sharpe_annual": 0.3128,
+  "max_drawdown_pct": -37.74,
+  "win_rate_pct": 53.3,
+  "trading_days": 848
 }
