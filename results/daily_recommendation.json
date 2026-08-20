@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-19 20:07 UTC",
-  "trade_date": "2026-08-18",
-  "window_start": "2026-05-21",
-  "window_end": "2026-08-17",
-  "expected_return": 0.6082,
-  "portfolio_risk": 0.00049982,
-  "sharpe": 0.2632,
-  "actual_return": -0.4206,
+  "last_updated": "2026-08-20 20:15 UTC",
+  "trade_date": "2026-08-19",
+  "window_start": "2026-05-22",
+  "window_end": "2026-08-18",
+  "expected_return": 0.5065,
+  "portfolio_risk": 0.00039077,
+  "sharpe": 0.2462,
+  "actual_return": 4.1039,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,9 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "AMZN",
@@ -34,6 +34,16 @@
       "sector": "Food_Beverage"
     },
     {
+      "ticker": "LULU",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "MCD",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
       "ticker": "META",
       "weight": 5.0,
       "sector": "Entertainment"
@@ -44,25 +54,15 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "PYPL",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "SBUX",
       "weight": 5.0,
       "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "XYZ",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 38.74,
-  "spy_return_pct": 98.06,
-  "sharpe_annual": 0.3128,
-  "max_drawdown_pct": -37.74,
-  "win_rate_pct": 53.3,
-  "trading_days": 848
+  "cumulative_return_pct": 41.03,
+  "spy_return_pct": 98.47,
+  "sharpe_annual": 0.3311,
+  "max_drawdown_pct": -38.79,
+  "win_rate_pct": 54.06,
+  "trading_days": 849
 }
