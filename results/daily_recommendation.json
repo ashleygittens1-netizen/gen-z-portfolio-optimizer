@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-24 20:17 UTC",
-  "trade_date": "2026-08-21",
-  "window_start": "2026-05-27",
-  "window_end": "2026-08-20",
-  "expected_return": 0.6483,
-  "portfolio_risk": 0.0004504,
-  "sharpe": 0.2961,
-  "actual_return": 1.9663,
+  "last_updated": "2026-08-25 20:13 UTC",
+  "trade_date": "2026-08-24",
+  "window_start": "2026-05-28",
+  "window_end": "2026-08-21",
+  "expected_return": 0.6276,
+  "portfolio_risk": 0.00044223,
+  "sharpe": 0.289,
+  "actual_return": 2.0351,
   "allocations": [
     {
       "ticker": "ELF",
@@ -55,14 +55,14 @@
     },
     {
       "ticker": "SBUX",
-      "weight": 4.99,
+      "weight": 4.97,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 113.94,
-  "spy_return_pct": 97.61,
-  "sharpe_annual": 0.7614,
+  "cumulative_return_pct": 118.29,
+  "spy_return_pct": 97.03,
+  "sharpe_annual": 0.7815,
   "max_drawdown_pct": -46.26,
-  "win_rate_pct": 53.58,
-  "trading_days": 851
+  "win_rate_pct": 53.64,
+  "trading_days": 852
 }
