@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-08-28 03:56 UTC",
-  "trade_date": "2026-08-27",
-  "window_start": "2026-06-02",
-  "window_end": "2026-08-26",
-  "expected_return": 0.7153,
-  "portfolio_risk": 0.0004037,
-  "sharpe": 0.3461,
-  "actual_return": -0.9351,
+  "last_updated": "2026-08-29 02:32 UTC",
+  "trade_date": "2026-08-28",
+  "window_start": "2026-06-03",
+  "window_end": "2026-08-27",
+  "expected_return": 0.7416,
+  "portfolio_risk": 0.00050141,
+  "sharpe": 0.3223,
+  "actual_return": -0.444,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,8 +14,13 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "COTY",
       "weight": 20.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "AFRM",
+      "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
     {
@@ -29,19 +34,14 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 5.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "SBUX",
       "weight": 5.0,
       "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "SPOT",
-      "weight": 5.0,
-      "sector": "Entertainment"
     },
     {
       "ticker": "UL",
@@ -54,15 +54,15 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "ULTA",
+      "ticker": "SPOT",
       "weight": 4.99,
-      "sector": "Skincare_Beauty"
+      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 117.01,
-  "spy_return_pct": 99.0,
-  "sharpe_annual": 0.7623,
-  "max_drawdown_pct": -45.94,
-  "win_rate_pct": 54.39,
-  "trading_days": 855
+  "cumulative_return_pct": 116.05,
+  "spy_return_pct": 98.55,
+  "sharpe_annual": 0.768,
+  "max_drawdown_pct": -46.25,
+  "win_rate_pct": 53.5,
+  "trading_days": 856
 }
