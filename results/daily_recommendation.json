@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-29 02:32 UTC",
+  "last_updated": "2026-08-31 23:31 UTC",
   "trade_date": "2026-08-28",
   "window_start": "2026-06-03",
   "window_end": "2026-08-27",
@@ -59,10 +59,10 @@
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 116.05,
+  "cumulative_return_pct": 116.04,
   "spy_return_pct": 98.55,
-  "sharpe_annual": 0.768,
-  "max_drawdown_pct": -46.25,
+  "sharpe_annual": 0.7679,
+  "max_drawdown_pct": -46.26,
   "win_rate_pct": 53.5,
   "trading_days": 856
 }
