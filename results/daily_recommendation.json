@@ -1,47 +1,37 @@
 {
-  "last_updated": "2026-09-02 22:04 UTC",
-  "trade_date": "2026-09-01",
-  "window_start": "2026-06-05",
-  "window_end": "2026-08-31",
-  "expected_return": 0.2702,
-  "portfolio_risk": 0.0003933,
-  "sharpe": 0.1262,
-  "actual_return": -1.4033,
+  "last_updated": "2026-09-03 21:59 UTC",
+  "trade_date": "2026-09-02",
+  "window_start": "2026-06-08",
+  "window_end": "2026-09-01",
+  "expected_return": 0.7851,
+  "portfolio_risk": 0.00050579,
+  "sharpe": 0.3403,
+  "actual_return": 2.3567,
   "allocations": [
     {
-      "ticker": "PYPL",
+      "ticker": "ELF",
       "weight": 40.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "CELH",
-      "weight": 20.0,
-      "sector": "Fitness_Wellness"
-    },
-    {
-      "ticker": "AFRM",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "AMZN",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "NFLX",
-      "weight": 5.0,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "PG",
-      "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "RBLX",
+      "ticker": "COTY",
+      "weight": 20.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "CELH",
       "weight": 5.0,
-      "sector": "Entertainment"
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "CMG",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "SPOT",
@@ -49,20 +39,30 @@
       "sector": "Entertainment"
     },
     {
+      "ticker": "UL",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
+      "ticker": "ULTA",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "XYZ",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "YUM",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
+      "ticker": "AFRM",
+      "weight": 4.99,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 123.18,
-  "spy_return_pct": 96.6,
-  "sharpe_annual": 0.7671,
-  "max_drawdown_pct": -43.03,
-  "win_rate_pct": 52.1,
-  "trading_days": 858
+  "cumulative_return_pct": 119.69,
+  "spy_return_pct": 97.47,
+  "sharpe_annual": 0.7825,
+  "max_drawdown_pct": -46.26,
+  "win_rate_pct": 53.55,
+  "trading_days": 859
 }
