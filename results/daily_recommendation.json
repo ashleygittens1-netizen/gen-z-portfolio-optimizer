@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-09-11 22:05 UTC",
-  "trade_date": "2026-09-10",
-  "window_start": "2026-06-15",
-  "window_end": "2026-09-09",
-  "expected_return": 0.5482,
-  "portfolio_risk": 0.00056239,
-  "sharpe": 0.2228,
-  "actual_return": -2.3535,
+  "last_updated": "2026-09-14 22:50 UTC",
+  "trade_date": "2026-09-11",
+  "window_start": "2026-06-16",
+  "window_end": "2026-09-10",
+  "expected_return": 0.4647,
+  "portfolio_risk": 0.00056831,
+  "sharpe": 0.1866,
+  "actual_return": 1.4202,
   "allocations": [
     {
       "ticker": "ELF",
@@ -39,7 +39,7 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "RBLX",
+      "ticker": "SPOT",
       "weight": 5.0,
       "sector": "Entertainment"
     },
@@ -54,15 +54,15 @@
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "SPOT",
-      "weight": 4.99,
+      "ticker": "RBLX",
+      "weight": 4.98,
       "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 96.61,
-  "spy_return_pct": 95.58,
-  "sharpe_annual": 0.6727,
+  "cumulative_return_pct": 99.4,
+  "spy_return_pct": 97.24,
+  "sharpe_annual": 0.6869,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.05,
-  "trading_days": 864
+  "win_rate_pct": 54.1,
+  "trading_days": 865
 }
