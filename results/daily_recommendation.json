@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-09-18 22:00 UTC",
-  "trade_date": "2026-09-17",
-  "window_start": "2026-06-23",
-  "window_end": "2026-09-16",
-  "expected_return": 0.4985,
-  "portfolio_risk": 0.00048984,
-  "sharpe": 0.2163,
-  "actual_return": -1.3075,
+  "last_updated": "2026-09-21 22:55 UTC",
+  "trade_date": "2026-09-18",
+  "window_start": "2026-06-24",
+  "window_end": "2026-09-17",
+  "expected_return": 0.4711,
+  "portfolio_risk": 0.00041608,
+  "sharpe": 0.2212,
+  "actual_return": 0.7615,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,9 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "CELH",
@@ -29,14 +29,19 @@
       "sector": "Food_Beverage"
     },
     {
+      "ticker": "COTY",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "META",
       "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "RBLX",
       "weight": 5.0,
-      "sector": "Commerce_Fintech"
+      "sector": "Entertainment"
     },
     {
       "ticker": "SPOT",
@@ -44,25 +49,20 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "UL",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
       "ticker": "ULTA",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "RBLX",
+      "ticker": "AMZN",
       "weight": 4.99,
-      "sector": "Entertainment"
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 92.37,
-  "spy_return_pct": 96.81,
-  "sharpe_annual": 0.6459,
+  "cumulative_return_pct": 93.83,
+  "spy_return_pct": 97.06,
+  "sharpe_annual": 0.6533,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 53.97,
-  "trading_days": 869
+  "win_rate_pct": 54.02,
+  "trading_days": 870
 }
