@@ -1,22 +1,22 @@
 {
-  "last_updated": "2026-09-22 22:31 UTC",
-  "trade_date": "2026-09-21",
-  "window_start": "2026-06-25",
-  "window_end": "2026-09-18",
-  "expected_return": 0.4636,
-  "portfolio_risk": 0.00049474,
-  "sharpe": 0.1995,
-  "actual_return": 2.4464,
+  "last_updated": "2026-09-23 22:32 UTC",
+  "trade_date": "2026-09-22",
+  "window_start": "2026-06-26",
+  "window_end": "2026-09-21",
+  "expected_return": 0.3353,
+  "portfolio_risk": 0.00033173,
+  "sharpe": 0.1732,
+  "actual_return": -0.0946,
   "allocations": [
     {
-      "ticker": "ELF",
+      "ticker": "META",
       "weight": 40.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Entertainment"
     },
     {
-      "ticker": "COTY",
+      "ticker": "PYPL",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Commerce_Fintech"
     },
     {
       "ticker": "AMZN",
@@ -34,35 +34,35 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "META",
+      "ticker": "LULU",
+      "weight": 5.0,
+      "sector": "Fitness_Wellness"
+    },
+    {
+      "ticker": "MCD",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "NFLX",
       "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "PYPL",
+      "ticker": "NKE",
       "weight": 5.0,
-      "sector": "Commerce_Fintech"
+      "sector": "Fitness_Wellness"
     },
     {
       "ticker": "RBLX",
       "weight": 5.0,
       "sector": "Entertainment"
-    },
-    {
-      "ticker": "SPOT",
-      "weight": 5.0,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "ULTA",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 98.58,
-  "spy_return_pct": 100.12,
-  "sharpe_annual": 0.6778,
-  "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.08,
-  "trading_days": 871
+  "cumulative_return_pct": 38.89,
+  "spy_return_pct": 100.09,
+  "sharpe_annual": 0.3041,
+  "max_drawdown_pct": -42.18,
+  "win_rate_pct": 53.56,
+  "trading_days": 872
 }
