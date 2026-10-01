@@ -1,16 +1,16 @@
 PORTFOLIO OPTIMIZATION SUMMARY
-Generated: 2026-09-30 23:18
-Date range: 2023-03-31 to 2026-09-29
+Generated: 2026-10-01 23:32
+Date range: 2023-03-31 to 2026-09-30
 
 PERFORMANCE vs S&P 500
 ========================================
 Metric                            MPT   S&P500
 ----------------------------------------
-Total Return                   98.45%   97.71%
-Annualized Sharpe                0.67     1.06
+Total Return                   96.35%   97.30%
+Annualized Sharpe                0.66     1.05
 Max Drawdown                  -40.89%  -18.76%
-Win Rate                       54.05%      N/A
-Trading Days                      877      888
+Win Rate                       53.99%      N/A
+Trading Days                      878      889
 
 MODEL SETTINGS
 ========================================
