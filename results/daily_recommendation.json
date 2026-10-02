@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-01 23:32 UTC",
-  "trade_date": "2026-09-30",
-  "window_start": "2026-07-07",
-  "window_end": "2026-09-29",
-  "expected_return": 0.3621,
-  "portfolio_risk": 0.00031931,
-  "sharpe": 0.1915,
-  "actual_return": -1.055,
+  "last_updated": "2026-10-02 23:21 UTC",
+  "trade_date": "2026-10-01",
+  "window_start": "2026-07-08",
+  "window_end": "2026-09-30",
+  "expected_return": 0.3184,
+  "portfolio_risk": 0.00033766,
+  "sharpe": 0.1625,
+  "actual_return": 1.0565,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,9 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "META",
-      "weight": 20.0,
-      "sector": "Entertainment"
+      "ticker": "ULTA",
+      "weight": 19.99,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "AMZN",
@@ -39,6 +39,11 @@
       "sector": "Skincare_Beauty"
     },
     {
+      "ticker": "META",
+      "weight": 5.0,
+      "sector": "Entertainment"
+    },
+    {
       "ticker": "PYPL",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
@@ -49,20 +54,15 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "ULTA",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
       "ticker": "UL",
       "weight": 4.99,
       "sector": "Skincare_Beauty"
     }
   ],
-  "cumulative_return_pct": 96.35,
-  "spy_return_pct": 97.3,
-  "sharpe_annual": 0.6612,
+  "cumulative_return_pct": 98.43,
+  "spy_return_pct": 97.66,
+  "sharpe_annual": 0.6716,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 53.99,
-  "trading_days": 878
+  "win_rate_pct": 54.04,
+  "trading_days": 879
 }
