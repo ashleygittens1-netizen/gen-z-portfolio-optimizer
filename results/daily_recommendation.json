@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-09 00:03 UTC",
-  "trade_date": "2026-10-07",
-  "window_start": "2026-07-14",
-  "window_end": "2026-10-06",
-  "expected_return": 0.3507,
-  "portfolio_risk": 0.00039231,
-  "sharpe": 0.167,
-  "actual_return": 0.9446,
+  "last_updated": "2026-10-09 23:40 UTC",
+  "trade_date": "2026-10-08",
+  "window_start": "2026-07-15",
+  "window_end": "2026-10-07",
+  "expected_return": 0.3809,
+  "portfolio_risk": 0.00037393,
+  "sharpe": 0.1867,
+  "actual_return": 0.6609,
   "allocations": [
     {
       "ticker": "ELF",
@@ -34,14 +34,14 @@
       "sector": "Entertainment"
     },
     {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "PYPL",
       "weight": 5.0,
       "sector": "Commerce_Fintech"
-    },
-    {
-      "ticker": "SBUX",
-      "weight": 5.0,
-      "sector": "Food_Beverage"
     },
     {
       "ticker": "SPOT",
@@ -49,20 +49,20 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "ULTA",
+      "ticker": "UL",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "PG",
+      "ticker": "YUM",
       "weight": 4.99,
-      "sector": "Skincare_Beauty"
+      "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 102.1,
-  "spy_return_pct": 101.08,
-  "sharpe_annual": 0.6883,
-  "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.25,
-  "trading_days": 883
+  "cumulative_return_pct": 110.25,
+  "spy_return_pct": 100.23,
+  "sharpe_annual": 0.7255,
+  "max_drawdown_pct": -40.7,
+  "win_rate_pct": 54.19,
+  "trading_days": 884
 }
