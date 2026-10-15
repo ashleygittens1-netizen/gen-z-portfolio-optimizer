@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-14 22:47 UTC",
-  "trade_date": "2026-10-13",
-  "window_start": "2026-07-20",
-  "window_end": "2026-10-12",
-  "expected_return": 0.4002,
-  "portfolio_risk": 0.0003467,
-  "sharpe": 0.2043,
-  "actual_return": -0.1966,
+  "last_updated": "2026-10-15 22:47 UTC",
+  "trade_date": "2026-10-14",
+  "window_start": "2026-07-21",
+  "window_end": "2026-10-13",
+  "expected_return": 0.334,
+  "portfolio_risk": 0.00028239,
+  "sharpe": 0.187,
+  "actual_return": -1.3015,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,9 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "ULTA",
+      "ticker": "META",
       "weight": 20.0,
-      "sector": "Skincare_Beauty"
+      "sector": "Entertainment"
     },
     {
       "ticker": "AFRM",
@@ -39,7 +39,7 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "META",
+      "ticker": "NFLX",
       "weight": 5.0,
       "sector": "Entertainment"
     },
@@ -49,20 +49,20 @@
       "sector": "Entertainment"
     },
     {
+      "ticker": "ULTA",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
+    },
+    {
       "ticker": "YUM",
       "weight": 5.0,
       "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "RBLX",
-      "weight": 4.97,
-      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 107.64,
-  "spy_return_pct": 101.28,
-  "sharpe_annual": 0.7138,
+  "cumulative_return_pct": 104.93,
+  "spy_return_pct": 99.11,
+  "sharpe_annual": 0.6994,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.34,
-  "trading_days": 887
+  "win_rate_pct": 54.28,
+  "trading_days": 888
 }
