@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-15 22:47 UTC",
-  "trade_date": "2026-10-14",
-  "window_start": "2026-07-21",
-  "window_end": "2026-10-13",
-  "expected_return": 0.334,
-  "portfolio_risk": 0.00028239,
-  "sharpe": 0.187,
-  "actual_return": -1.3015,
+  "last_updated": "2026-10-16 22:18 UTC",
+  "trade_date": "2026-10-15",
+  "window_start": "2026-07-22",
+  "window_end": "2026-10-14",
+  "expected_return": 0.3337,
+  "portfolio_risk": 0.00029396,
+  "sharpe": 0.183,
+  "actual_return": 4.4454,
   "allocations": [
     {
       "ticker": "ELF",
@@ -14,14 +14,9 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "META",
+      "ticker": "ULTA",
       "weight": 20.0,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "AFRM",
-      "weight": 5.0,
-      "sector": "Commerce_Fintech"
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "AMZN",
@@ -39,9 +34,14 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "NFLX",
+      "ticker": "META",
       "weight": 5.0,
       "sector": "Entertainment"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
+      "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SPOT",
@@ -49,7 +49,7 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "ULTA",
+      "ticker": "UL",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
@@ -59,10 +59,10 @@
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 104.93,
-  "spy_return_pct": 99.11,
-  "sharpe_annual": 0.6994,
+  "cumulative_return_pct": 114.04,
+  "spy_return_pct": 99.67,
+  "sharpe_annual": 0.7423,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.28,
-  "trading_days": 888
+  "win_rate_pct": 54.33,
+  "trading_days": 889
 }
