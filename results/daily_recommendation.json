@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-22 23:00 UTC",
-  "trade_date": "2026-10-21",
-  "window_start": "2026-07-28",
-  "window_end": "2026-10-20",
-  "expected_return": 0.3869,
-  "portfolio_risk": 0.00030419,
-  "sharpe": 0.2104,
-  "actual_return": -0.7822,
+  "last_updated": "2026-10-23 22:45 UTC",
+  "trade_date": "2026-10-22",
+  "window_start": "2026-07-29",
+  "window_end": "2026-10-21",
+  "expected_return": 0.3488,
+  "portfolio_risk": 0.00031848,
+  "sharpe": 0.1843,
+  "actual_return": 1.4863,
   "allocations": [
     {
       "ticker": "ELF",
@@ -39,12 +39,12 @@
       "sector": "Entertainment"
     },
     {
-      "ticker": "RBLX",
+      "ticker": "PG",
       "weight": 5.0,
-      "sector": "Entertainment"
+      "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "SPOT",
+      "ticker": "RBLX",
       "weight": 5.0,
       "sector": "Entertainment"
     },
@@ -54,15 +54,15 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "UL",
-      "weight": 4.98,
-      "sector": "Skincare_Beauty"
+      "ticker": "AFRM",
+      "weight": 4.99,
+      "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 111.03,
-  "spy_return_pct": 100.01,
-  "sharpe_annual": 0.7246,
+  "cumulative_return_pct": 114.16,
+  "spy_return_pct": 97.65,
+  "sharpe_annual": 0.7391,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.31,
-  "trading_days": 893
+  "win_rate_pct": 54.36,
+  "trading_days": 894
 }
