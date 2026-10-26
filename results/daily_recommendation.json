@@ -1,52 +1,47 @@
 {
-  "last_updated": "2026-10-23 22:45 UTC",
-  "trade_date": "2026-10-22",
-  "window_start": "2026-07-29",
-  "window_end": "2026-10-21",
-  "expected_return": 0.3488,
-  "portfolio_risk": 0.00031848,
-  "sharpe": 0.1843,
-  "actual_return": 1.4863,
+  "last_updated": "2026-10-26 23:28 UTC",
+  "trade_date": "2026-10-23",
+  "window_start": "2026-07-30",
+  "window_end": "2026-10-22",
+  "expected_return": 0.2378,
+  "portfolio_risk": 7.759e-05,
+  "sharpe": 0.2475,
+  "actual_return": -1.524,
   "allocations": [
     {
-      "ticker": "ELF",
-      "weight": 40.0,
+      "ticker": "PG",
+      "weight": 35.27,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "ULTA",
-      "weight": 20.0,
+      "ticker": "ELF",
+      "weight": 12.12,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "AMZN",
-      "weight": 5.0,
+      "weight": 12.1,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "CELH",
+      "ticker": "META",
+      "weight": 10.5,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "MNST",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "COTY",
+      "ticker": "SBUX",
+      "weight": 5.0,
+      "sector": "Food_Beverage"
+    },
+    {
+      "ticker": "ULTA",
       "weight": 5.0,
       "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "META",
-      "weight": 5.0,
-      "sector": "Entertainment"
-    },
-    {
-      "ticker": "PG",
-      "weight": 5.0,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "RBLX",
-      "weight": 5.0,
-      "sector": "Entertainment"
     },
     {
       "ticker": "YUM",
@@ -54,15 +49,25 @@
       "sector": "Food_Beverage"
     },
     {
-      "ticker": "AFRM",
-      "weight": 4.99,
+      "ticker": "SPOT",
+      "weight": 4.79,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "RBLX",
+      "weight": 2.96,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "PYPL",
+      "weight": 2.24,
       "sector": "Commerce_Fintech"
     }
   ],
-  "cumulative_return_pct": 114.16,
-  "spy_return_pct": 97.65,
-  "sharpe_annual": 0.7391,
+  "cumulative_return_pct": 110.9,
+  "spy_return_pct": 96.62,
+  "sharpe_annual": 0.7224,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.36,
-  "trading_days": 894
+  "win_rate_pct": 54.3,
+  "trading_days": 895
 }
