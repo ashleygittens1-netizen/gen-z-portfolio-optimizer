@@ -1,78 +1,68 @@
 {
-  "last_updated": "2026-10-27 23:19 UTC",
-  "trade_date": "2026-10-26",
-  "window_start": "2026-07-31",
-  "window_end": "2026-10-23",
-  "expected_return": 0.2232,
-  "portfolio_risk": 7.982e-05,
-  "sharpe": 0.2276,
-  "actual_return": -0.7096,
+  "last_updated": "2026-10-28 23:43 UTC",
+  "trade_date": "2026-10-27",
+  "window_start": "2026-08-03",
+  "window_end": "2026-10-26",
+  "expected_return": 0.4898,
+  "portfolio_risk": 0.00042989,
+  "sharpe": 0.2266,
+  "actual_return": 0.1733,
   "allocations": [
     {
-      "ticker": "PG",
-      "weight": 36.02,
-      "sector": "Skincare_Beauty"
-    },
-    {
-      "ticker": "META",
-      "weight": 16.23,
+      "ticker": "RBLX",
+      "weight": 40.0,
       "sector": "Entertainment"
     },
     {
       "ticker": "ELF",
-      "weight": 10.47,
+      "weight": 20.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AMZN",
-      "weight": 7.28,
+      "ticker": "AFRM",
+      "weight": 5.0,
       "sector": "Commerce_Fintech"
     },
     {
-      "ticker": "MNST",
+      "ticker": "CELH",
       "weight": 5.0,
       "sector": "Fitness_Wellness"
     },
     {
-      "ticker": "SBUX",
+      "ticker": "COTY",
       "weight": 5.0,
-      "sector": "Food_Beverage"
+      "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "ULTA",
-      "weight": 4.74,
+      "ticker": "META",
+      "weight": 5.0,
+      "sector": "Entertainment"
+    },
+    {
+      "ticker": "PG",
+      "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
       "ticker": "SPOT",
-      "weight": 4.51,
+      "weight": 5.0,
       "sector": "Entertainment"
     },
     {
-      "ticker": "UL",
-      "weight": 4.26,
+      "ticker": "ULTA",
+      "weight": 5.0,
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "PYPL",
-      "weight": 2.98,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "YUM",
-      "weight": 2.03,
+      "weight": 4.97,
       "sector": "Food_Beverage"
-    },
-    {
-      "ticker": "RBLX",
-      "weight": 1.48,
-      "sector": "Entertainment"
     }
   ],
-  "cumulative_return_pct": 109.4,
-  "spy_return_pct": 98.01,
-  "sharpe_annual": 0.7144,
+  "cumulative_return_pct": 109.76,
+  "spy_return_pct": 99.12,
+  "sharpe_annual": 0.7156,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.24,
-  "trading_days": 896
+  "win_rate_pct": 54.29,
+  "trading_days": 897
 }
