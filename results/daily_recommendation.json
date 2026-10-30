@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-10-29 23:43 UTC",
-  "trade_date": "2026-10-28",
-  "window_start": "2026-08-04",
-  "window_end": "2026-10-27",
-  "expected_return": 0.4663,
-  "portfolio_risk": 0.00042796,
-  "sharpe": 0.2158,
-  "actual_return": -0.6175,
+  "last_updated": "2026-10-30 23:22 UTC",
+  "trade_date": "2026-10-29",
+  "window_start": "2026-08-05",
+  "window_end": "2026-10-28",
+  "expected_return": 0.4192,
+  "portfolio_risk": 0.00039692,
+  "sharpe": 0.2004,
+  "actual_return": -0.2618,
   "allocations": [
     {
       "ticker": "RBLX",
@@ -39,6 +39,11 @@
       "sector": "Skincare_Beauty"
     },
     {
+      "ticker": "PYPL",
+      "weight": 5.0,
+      "sector": "Commerce_Fintech"
+    },
+    {
       "ticker": "SPOT",
       "weight": 5.0,
       "sector": "Entertainment"
@@ -49,20 +54,15 @@
       "sector": "Skincare_Beauty"
     },
     {
-      "ticker": "AFRM",
-      "weight": 4.99,
-      "sector": "Commerce_Fintech"
-    },
-    {
       "ticker": "YUM",
-      "weight": 4.99,
+      "weight": 5.0,
       "sector": "Food_Beverage"
     }
   ],
-  "cumulative_return_pct": 108.47,
-  "spy_return_pct": 99.81,
-  "sharpe_annual": 0.7085,
+  "cumulative_return_pct": 107.92,
+  "spy_return_pct": 99.05,
+  "sharpe_annual": 0.7052,
   "max_drawdown_pct": -40.89,
-  "win_rate_pct": 54.23,
-  "trading_days": 898
+  "win_rate_pct": 54.17,
+  "trading_days": 899
 }
